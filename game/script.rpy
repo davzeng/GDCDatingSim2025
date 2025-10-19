@@ -35,15 +35,15 @@ label start:
 
     menu:
 
-        "H-hey, I'm sorry I'm late to club..."
+        "H-hey, I'm sorry I'm late to club...":
 
             "David" "It's all good. Welcome in!"
 
-        "H-hey, is this the Game Dev club?"
+        "H-hey, is this the Game Dev club?":
 
             "Sydney" "Yeah! Come in, we've just started"
 
-        "Oh, so this is be the Game Dev Club."
+        "Oh, so this is be the Game Dev Club.":
 
             "Tom" "Yes, that's us!"
     
