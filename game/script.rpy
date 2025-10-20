@@ -74,7 +74,8 @@ label start:
     "Tom" "We meet on {color=#ff0}Wednesdays at 5:00{/color} each week!"
     "Tom" "A lot of people here have made games before but a lot of people here are new to it."
     "Tom" "Like you might be, yeah?"
-    "Sydney" "We try to keep the club super beginner friendly! :D We’ll have meetings on, say, art or music or…{nw}"
+    "Sydney" "We try to keep the club super beginner friendly! :D"
+    "Sydney" "We’ll have meetings on, say, art or music or..."
     "Ande" "{b}OR PROGRAMMING!{/b}"
     "Sydney" "...and right now we're{fast} doing a bit of an icebreaker activity!"
     "Sebastian" "Here's a bingo sheet, try to fill it out as best as you can. ;)"
@@ -137,20 +138,18 @@ label start:
                 "Anthony" "Do you want to be {i}sub-optimal{/i}?! Or do you want to {i}win{/i} this bingo?"
                 "Anthony" "That's what I thought."
                 "Anthony" "Now just give me a few more minutes to figure this out. Or maybe hours. I’ll make sure you have the {color=#f00}MAXIMUM{/color} chance of completing this bingo board!"
-                "Anthony" "Wait … \"maximum\" … \"bingo\" … \"figure\" … I’ve got an idea!"
+                "Anthony" "Wait ... \"maximum\" ... \"bingo\" ... \"figure\" ... I’ve got an idea!"
             "What if we narrowed it down?":
                 "Anthony" "Hmm, restrict the solution space? I like the way you think!"
-                "Anthony" "Wait … \"solution\" … \"think\" … I’ve got an idea!"
+                "Anthony" "Wait ... \"solution\" ... \"think\" ... I’ve got an idea!"
             "Talk to another officer":
                 "Anthony" "Woah woah woah where are you going?"
                 "Anthony" "This problem needs to be solved! So we—yes, we—are going to sit here until we figure this out!"
-                "Anthony" "Wait … \"going\" … \"problem\" … “sit” … I’ve got an idea!"
+                "Anthony" "Wait ... \"going\" ... \"problem\" ... “sit” ... I’ve got an idea!"
         
         "Anthony" "Do you have a pen or pencil or something? I also need some paper—wait, I can use the back of the bingo board!"
         "Anthony" "Now we just put all possible bingo configurations on a state diagram, estimate the transition probabilities, run some graph traversal..."
-        "Anthony" "...compute the Laplacian, and...{nw}"
-        "Anthony" "...wait is that a zero or an \"O\"...?{nw}"
-        "Anthony" "...drop the seven, carry the two, and...{nw}"
+        "Anthony" "{cps=80}...compute the Laplacian, and...{p}...wait is that a zero or an \"O\"...?{p}...drop the seven, carry the two, and...{/cps}"
         "Anthony" "There we go! The optimal bingo box is simply the solution to this 25-degree polynomial!"
         "Anthony" "Yeah, I don’t know how to solve this."
         "Anthony" "And so much time has passed! I’ll just check the \"Been to Game Dev Club before\" box."
@@ -189,7 +188,7 @@ label start:
                 "Tom" "Personal question so soon! Wow! What a specimen! Look at you!"
                 "Tom" "Y’know, I guess the main thing is I just aspire to be a beneficial part of the world. Be the best person I can, be good to others."
                 "Tom" "Beyond that? I’d say I want to find somebody to spend my life with. Have a house, garden, maybe a family. Do something with my career that improves the world."
-                "Tom" "Short term goals though? Don’t really know, if I’m being honest…"
+                "Tom" "Short term goals though? Don’t really know, if I’m being honest..."
                 "Tom" "What are yours?"
                 menu:
                     "I want to be an astronaut and shoot myself into space and leave Earth forever.":
@@ -217,7 +216,7 @@ label start:
             
         "Tom" "But yeah, I’ve been a {color=#f0f}game development officer{/color} for years now. I’m the head of our Reclamation, advancement, and Technology division."
         "Tom" "The RAT division."
-        "Tom" "I don’t even know how long I've been here… or how long there is left…"
+        "Tom" "I don’t even know how long I've been here... or how long there is left..."
         "Tom" "..."
         "Tom" "You have a bingo sheet, right? Let me take a look."
         "You give Tom the {color=#ff0}Bingo Sheet{/color}."
@@ -247,7 +246,7 @@ label start:
             "{i}Fill out \"Sleeps in real life AND in game\".{/i}":
                 "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
                 "Tom" "Oh wow! We really do have a lot in common don’t we?"
-                "Tom" "Maybe we could, uh, put our Minecraft beds on adjacent blocks… if you wouldn’t mind…"
+                "Tom" "Maybe we could, uh, put our Minecraft beds on adjacent blocks... if you wouldn’t mind..."
                 "Tom" "..."
                 "Tom" "Uh... thanks for the bingo!"
             "{i}Fill out \"Knows you're up to something\".{/i}" if askedShortTerm:
@@ -276,16 +275,16 @@ label start:
             "Uhh.. yeah it's nice to meet you too.":
                 "Sydney" "Uh yeah."
 
-        "Sydney" "So yeah you've got a bingo sheet right? Let's see…"
+        "Sydney" "So yeah you've got a bingo sheet right? Let's see..."
         "Sydney" "\"Thinks fruits and vegetables came from {i}Stardew Valley{/i}\" uhh..."
         "Sydney" "OMG yeah once I went to the state fair and was {color=#f00}SHOCKED{/color} to see pumpkins in real life."
         "Sydney" "I can’t believe they’d so shamelessly rip off Stardew like that!"
-        "Sydney" "They made it so you can even grow giant pumpkins too? What the fart…"
+        "Sydney" "They made it so you can even grow giant pumpkins too? What the fart..."
         menu:
             "Real life came first. Then {i}Stardew Valley{/i}.":
                 "Sydney" "{b}YOU TAKE THAT BACK!!!{/b}"
                 "Sydney" "..."
-                "Sydney" "Sorry, what I meant to say was… erm… you’re wrong. Yup! ;D"
+                "Sydney" "Sorry, what I meant to say was... erm... you’re wrong. Yup! ;D"
             "And they had the audacity to take cauliflower too!":
                 "Sydney" "I know right! You get it."
             "...":
@@ -319,9 +318,9 @@ label start:
                 "You give Ande the {color=#ff0}Bingo Sheet{/color}."
 
         "Ande" "Hmmmmmm..."
-        "Ande" "…nothing about markiplier onlyfans is on here…"
-        "Ande" "…nothing about ranked roblox gooning…"
-        "Ande" "…nothing about {color=#ff0}pheromone-maxxing{/color} either…"
+        "Ande" "...nothing about markiplier onlyfans is on here..."
+        "Ande" "...nothing about ranked roblox gooning..."
+        "Ande" "...nothing about {color=#ff0}pheromone-maxxing{/color} either..."
         "Ande" "{i}Who made this?!{/i}"
         "Ande" "Fine. I'll fill this one out!"
         "Ande draws a box on your Bingo Sheet outside of the grid, creating a row of 6, and fills it in."
@@ -333,9 +332,9 @@ label start:
             "No...":
                 "Ande" "Well, you should try it out sometime!"
             "You are weird.":
-                "Ande" "…buddy, have you SEEN the other officers?"
+                "Ande" "...buddy, have you SEEN the other officers?"
 
-        "Ande" "Well, thank you for showing up to the game development club! In fact, I wouldn't mind if you showed up to my class tomorrow. I lost my Roblox gaming buddy last time…"
+        "Ande" "Well, thank you for showing up to the game development club! In fact, I wouldn't mind if you showed up to my class tomorrow. I lost my Roblox gaming buddy last time..."
         menu:
             "Thanks! I'll think about it!":
                 "Ande" "See you there! I'll reserve a seat!"
@@ -361,7 +360,7 @@ label start:
         "David" "I’m David, head of the game dev club’s intelligence division."
         "David" "I like to play gacha games. Lots of gacha games."
         "David" "My favorite character is ZhuoZhi. I spent $2000 dollars maxing her out."
-        "David" "But I’d pay double the amount of money for her to tie me down and{nw}"
+        "David" "{cps=80}But I’d pay double the amount of money for her to tie me down and{/cps}"
         "David" "..."
         "David" "Ahem."
         "David" "Sorry about that."
@@ -370,7 +369,7 @@ label start:
         "David fills out \"Has spent at least $1000 on a video game\"."
         "You got the {color=#ff0}Bingo Sheet{/color}."
         "David" "By the way, I’m practicing my cosplay for a convention tomorrow."
-        "David" "If you happen to be a weeb too...{pause} I wouldn’t mind it if you came as well…"
+        "David" "If you happen to be a weeb too...{w} I wouldn’t mind it if you came as well..."
         jump chooseOfficerIntro
 
     label sebastianIntro:
