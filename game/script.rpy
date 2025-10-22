@@ -21,6 +21,9 @@ image bg_classroom:
 transform half_size:
     zoom 0.5
 
+transform scale(ratio):
+    zoom ratio
+
 
 label start:
     scene black
@@ -45,7 +48,7 @@ label start:
             "David" "It's all good. Welcome in!"
 
         "H-hey, is this the Game Dev club?":
-            show syd_standing_happy2 at half_size, right
+            show syd standing happy2 at scale(0.45), right
             "Sydney" "Yeah! Come in, we've just started."
 
         "Oh, so this is be the Game Dev Club.":
@@ -508,11 +511,18 @@ label start:
         label sydneyDate:
             $ sydneyDateValue = 0
             "Everything’s dark since… y’know… Sydney has her hands over your eyes. She said she had a surprise date idea and you can’t help but feel… on edge."
+            show syd standing2 happy2 at scale(0.45)
             "Sydney" "Suuuurrppppppppiiiiissseeee!!!"
+            hide syd standing2 happy2 at scale(0.45)
             "Her hands uncover your eyes to reveal... a plane's interior?"
+            show syd arms happy3 at scale(0.45)
             "Sydney" "Y’know that saying ‘love is in the air’? Since this is our first date, I figured we should be in the air!"
             "Sydney" "To find love."
+            hide syd arms happy3 at scale(0.45)
+            show syd arms concerned at scale(0.45)
             "Sydney" "Yeah."
+            hide syd arms concerned at scale(0.45)
+            show syd thumbsup happy3 at scale(0.45)
             "Sydney" "We’re going skydiving!! Nothing’s more romantic than falling thousands of feet together!"
             menu:
                 "Ni hen mei ;)":
@@ -724,10 +734,18 @@ label start:
                 return
             else:
                 "The parachute opens in a normal and anticlimactic way."
+                "Your feet reach the ground, again in a normal and anticlimactic way."
+                "Sydney" "Uh...nice! Idk why I expected something bigger to happen."
+                "Sydney" "Well, I had a good time today!"
+                "Sydney" "And well, I think we'd be better off as friends. I just didn't feel the sparks with you yknow?"
+                "Sydney" "And that's ok! Friends are boss. I like having friends."
+                "Sydney" "Ok this was fun it was nice to meet you let's do this again sometime ok bye!"
+                "Sydney struts away."
+                "Congratulations! You've made your very first friend :)"
                 "You achieved SYDNEY NEUTRAL ENDING."
                 return
 
-        label andeDate:
+        #label andeDate:
 
         label davidDate:
 
