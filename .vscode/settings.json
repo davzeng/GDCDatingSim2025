@@ -215,6 +215,12 @@
                 "settings": {
                     "foreground": "#0057ad"
                 }
+            },
+            {
+                "scope": "renpy.meta.color.#000",
+                "settings": {
+                    "foreground": "#000"
+                }
             }
         ]
     }

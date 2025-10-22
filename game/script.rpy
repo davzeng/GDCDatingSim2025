@@ -3,7 +3,14 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("Y/N")
+define p = Character("Y/N", color="#ddd")
+define d = Character("David", color="#e83")
+define s = Character("Sydney", color="#6bc8d6")
+define t = Character("Tom", color="#1aec87")
+define a = Character("Ande", color="#fddc04")
+define se = Character("Sebastian", color="#da97ea")
+define an = Character("Anthony", color="#909def")
+
 define secretStep1 = False
 define secretStep2 = False
 define officerDate = 0
@@ -33,7 +40,7 @@ transform weirdsydneyscale(ratio):
     align (0.0, 1.0)
 
 label start:
-    jump tomDate
+    jump tomIntro
     scene black
 
     p "I'm late! I'm late!"
@@ -54,76 +61,76 @@ label start:
     menu:
         "H-hey, I'm sorry I'm late to club...":
             show dav cool happy at half_size
-            "David" "It's all good. Welcome in!"
+            d "It's all good. Welcome in!"
             hide dav cool happy at half_size
         "H-hey, is this the Game Dev club?":
             show syd standing happy2 at weirdsydneyscale(0.45)
-            "Sydney" "Yeah! Come in, we've just started."
+            s "Yeah! Come in, we've just started."
             hide syd standing happy2 at weirdsydneyscale(0.45)
         "Oh, so this is be the Game Dev Club.":
             show tom cross happy at scale(0.45)
-            "Tom" "Yes, that's us!"
+            t "Yes, that's us!"
             hide tom cross happy at scale(0.45)
     
     show tom standing happy2 at scale(0.45)
-    "Tom" "Welcome in, welcome in!"
+    t "Welcome in, welcome in!"
     hide tom standing happy2 at scale(0.45)
     # show sebastian, right
-    "Sebastian" "We make games here!"
+    se "We make games here!"
     # show ande
-    "Ande" "Oh hey, you new to the club?"
+    a "Oh hey, you new to the club?"
     # hide ande
     # hide sebastian, right
     menu:
         "No, I'm a game development veteran.":
             show dav hand concerned at half_size
-            "David"  "I, uh, I don't think I've seen you here before."
+            d  "I, uh, I don't think I've seen you here before."
             hide dav hand concerned at half_size
             show dav hand concerned2 at half_size
-            "David" "Is your head ok?"
+            d "Is your head ok?"
             hide dav hand concerned2 at half_size
             show dav cool happy at half_size
-            "David" "Come in anyways, I suppose."
+            d "Come in anyways, I suppose."
             hide dav cool happy at half_size
 
         "Y-yeah, this is my first time here.":
             # show anthony
-            "Anthony" "Ah great! New members are always fabulous."
+            an "Ah great! New members are always fabulous."
             # hide anthony
 
         "Actually, I...":
             show tom flattered at scale(0.45)
-            "Tom" "Well great! I just finished coding another {i}beautiful{/i} game in {color=#ff0}JavaScript{/color}."
+            t "Well great! I just finished coding another {i}beautiful{/i} game in {color=#ff0}JavaScript{/color}."
             hide tom flattered at scale(0.45)
             show tom cross happy at scale(0.45)
-            "Tom" "I promise I'm ok, mentally."
+            t "I promise I'm ok, mentally."
             hide tom cross happy at scale(0.45)
             show tom cross neutral at scale(0.45)
-            "Tom" "Anyways."
+            t "Anyways."
             hide tom cross neutral at scale(0.45)
 
     show tom cross happy3 at scale(0.45)
-    "Tom" "We meet on {color=#ff0}Wednesdays at 5:00{/color} each week!"
-    "Tom" "A lot of people here have made games before but a lot of people here are new to it."
+    t "We meet on {color=#ff0}Wednesdays at 5:00{/color} each week!"
+    t "A lot of people here have made games before but a lot of people here are new to it."
     hide tom cross happy3 at scale(0.45)
     show tom cross happy2 at scale(0.45)
-    "Tom" "Like you might be, yeah?"
+    t "Like you might be, yeah?"
     hide tom cross happy2 at scale(0.45)
 
     show syd standing happy2 at weirdsydneyscale(0.45)
-    "Sydney" "We try to keep the club super beginner friendly! :D"
-    "Sydney" "We’ll have meetings on, say, art or music or..."
+    s "We try to keep the club super beginner friendly! :D"
+    s "We’ll have meetings on, say, art or music or..."
     hide syd standing happy2 at weirdsydneyscale(0.45)
     show syd standing neutral at weirdsydneyscale(0.45)
     # show ande
-    "Ande" "{b}OR PROGRAMMING!{/b}"
+    a "{b}OR PROGRAMMING!{/b}"
     hide syd standing neutral at weirdsydneyscale(0.45)
     show syd standing happy2 at weirdsydneyscale(0.45)
-    "Sydney" "...and right now we're{fast} doing a bit of an icebreaker activity!"
+    s "...and right now we're{fast} doing a bit of an icebreaker activity!"
     # hide ande
     hide syd standing happy2 at weirdsydneyscale(0.45)
     # show sebastian
-    "Sebastian" "Here's a bingo sheet, try to fill it out as best as you can. ;)"
+    se "Here's a bingo sheet, try to fill it out as best as you can. ;)"
 
     "Sebastian handed you the {color=#ff0}Bingo Sheet{/color}."
     # hide sebastian
@@ -143,11 +150,11 @@ label start:
             set visitedOfficer
             "Approach Anthony":
                 $ officersVisited += 1
-                "Anthony" "Hello! Welcome to the club!"
+                an "Hello! Welcome to the club!"
                 label anthonyIntroLoop:
                     menu:
                         "...hi!":
-                            "Anthony" "...Hello!"
+                            an "...Hello!"
                             jump anthonyIntroLoop
                         "Can you mark something on my bingo sheet?":
                             jump anthonyIntro
@@ -170,173 +177,173 @@ label start:
                 jump endIntro
 
     label anthonyIntro:
-        "Anthony" "O-oh! You want {i}me{/i} to look at your sheet?"
-        "Anthony" "Let's see... I could do this one... or that one... or maybe..."
-        "Anthony" "Does Scratch count as a coding language?"
-        "Anthony" "We can only check off one box, though, right? We gotta choose the best one."
-        "Anthony" "Tom could probably do that coding one, and I think David also writes. But you probably want to save David for the {color=#f00}waifu{/color} box."
-        "Anthony" "But what if..."
+        an "O-oh! You want {i}me{/i} to look at your sheet?"
+        an "Let's see... I could do this one... or that one... or maybe..."
+        an "Does Scratch count as a coding language?"
+        an "We can only check off one box, though, right? We gotta choose the best one."
+        an "Tom could probably do that coding one, and I think David also writes. But you probably want to save David for the {color=#f00}waifu{/color} box."
+        an "But what if..."
         menu anthonyIntro1: 
             "...":
-                "Anthony" "Hmmmm..."
+                an "Hmmmm..."
                 jump anthonyIntro1
             "Just pick one!":
-                "Anthony" "Do you want to be {i}sub-optimal{/i}?! Or do you want to {i}win{/i} this bingo?"
-                "Anthony" "That's what I thought."
-                "Anthony" "Now just give me a few more minutes to figure this out. Or maybe hours. I’ll make sure you have the {color=#f00}MAXIMUM{/color} chance of completing this bingo board!"
-                "Anthony" "Wait ... \"maximum\" ... \"bingo\" ... \"figure\" ... I’ve got an idea!"
+                an "Do you want to be {i}sub-optimal{/i}?! Or do you want to {i}win{/i} this bingo?"
+                an "That's what I thought."
+                an "Now just give me a few more minutes to figure this out. Or maybe hours. I’ll make sure you have the {color=#f00}MAXIMUM{/color} chance of completing this bingo board!"
+                an "Wait ... \"maximum\" ... \"bingo\" ... \"figure\" ... I’ve got an idea!"
             "What if we narrowed it down?":
-                "Anthony" "Hmm, restrict the solution space? I like the way you think!"
-                "Anthony" "Wait ... \"solution\" ... \"think\" ... I’ve got an idea!"
+                an "Hmm, restrict the solution space? I like the way you think!"
+                an "Wait ... \"solution\" ... \"think\" ... I’ve got an idea!"
             "Talk to another officer":
-                "Anthony" "Woah woah woah where are you going?"
-                "Anthony" "This problem needs to be solved! So we—yes, we—are going to sit here until we figure this out!"
-                "Anthony" "Wait ... \"going\" ... \"problem\" ... “sit” ... I’ve got an idea!"
+                an "Woah woah woah where are you going?"
+                an "This problem needs to be solved! So we—yes, we—are going to sit here until we figure this out!"
+                an "Wait ... \"going\" ... \"problem\" ... “sit” ... I’ve got an idea!"
         
-        "Anthony" "Do you have a pen or pencil or something? I also need some paper—wait, I can use the back of the bingo board!"
-        "Anthony" "Now we just put all possible bingo configurations on a state diagram, estimate the transition probabilities, run some graph traversal..."
-        "Anthony" "{cps=80}...compute the Laplacian, and...{p}...wait is that a zero or an \"O\"...?{p}...drop the seven, carry the two, and...{/cps}"
-        "Anthony" "There we go! The optimal bingo box is simply the solution to this 25-degree polynomial!"
-        "Anthony" "Yeah, I don’t know how to solve this."
-        "Anthony" "And so much time has passed! I’ll just check the \"Been to Game Dev Club before\" box."
-        "Anthony" "But that was a lot of fun! We should talk more if you have any other problems you want solved!"
-        "Anthony" "Or not solved."
-        "Anthony" "Regardless!"
+        an "Do you have a pen or pencil or something? I also need some paper—wait, I can use the back of the bingo board!"
+        an "Now we just put all possible bingo configurations on a state diagram, estimate the transition probabilities, run some graph traversal..."
+        an "{cps=80}...compute the Laplacian, and...{p}...wait is that a zero or an \"O\"...?{p}...drop the seven, carry the two, and...{/cps}"
+        an "There we go! The optimal bingo box is simply the solution to this 25-degree polynomial!"
+        an "Yeah, I don’t know how to solve this."
+        an "And so much time has passed! I’ll just check the \"Been to Game Dev Club before\" box."
+        an "But that was a lot of fun! We should talk more if you have any other problems you want solved!"
+        an "Or not solved."
+        an "Regardless!"
         jump chooseOfficerIntro
 
     label andeIntro:
-        "Ande" "Hey..."
+        a "Hey..."
         $ visited = []
         menu andeIntro1:
             set visited
             "Hola!":
-                "Ande" "Sorry, I don't speak {color=#f00}Japanese{/color}..."
+                a "Sorry, I don't speak {color=#f00}Japanese{/color}..."
                 jump andeIntro1
             "Hey, I need my bingo filled out!":
-                "Ande" "Yeah, I gotchu."
+                a "Yeah, I gotchu."
             "You sound nice...":
-                "Ande" "Thanks, I get that a lot."
-                "Ande" "Well, not a lot, but sometimes."
-                "Ande" "Well, never, but thank you!"
-                "Ande" "Anyways, lemme fill out your bingo!"
+                a "Thanks, I get that a lot."
+                a "Well, not a lot, but sometimes."
+                a "Well, never, but thank you!"
+                a "Anyways, lemme fill out your bingo!"
             "hey...":
-                "Ande" "Hey..."
+                a "Hey..."
                 jump andeIntro1
 
-        "Ande" "Lemme take a look..."
+        a "Lemme take a look..."
         menu:
             "tuff.":
                 "You give Ande the {color=#ff0}Bingo Sheet{/color}."
 
-        "Ande" "Hmmmmmm..."
-        "Ande" "...nothing about Markiplier OnlyFans is on here..."
-        "Ande" "...nothing about ranked Roblox gooning..."
-        "Ande" "...nothing about {color=#ff0}pheromone-maxxing{/color} either..."
-        "Ande" "{i}Who made this?!{/i}"
-        "Ande" "Fine. I'll fill this one out!"
+        a "Hmmmmmm..."
+        a "...nothing about Markiplier OnlyFans is on here..."
+        a "...nothing about ranked Roblox gooning..."
+        a "...nothing about {color=#ff0}pheromone-maxxing{/color} either..."
+        a "{i}Who made this?!{/i}"
+        a "Fine. I'll fill this one out!"
         "Ande draws a box on your Bingo Sheet outside of the grid, creating a row of 6, and fills it in."
         "You got the {color=#ff0}Bingo Sheet{/color}."
-        "Ande" "By the way, do you play Roblox?"
+        a "By the way, do you play Roblox?"
         menu:
             "I love {i}cart ride into 17 pregnant hyenas{/i}!":
-                "Ande" "Nice. I love {i}cart ride into 17 pregnant hyenas{/i} too. Roblox is really great!"
+                a "Nice. I love {i}cart ride into 17 pregnant hyenas{/i} too. Roblox is really great!"
             "No...":
-                "Ande" "Well, you should try it out sometime!"
+                a "Well, you should try it out sometime!"
             "You are weird.":
-                "Ande" "...buddy, have you SEEN the other {color=#f0f}officers{/color}?"
+                a "...buddy, have you SEEN the other {color=#f0f}officers{/color}?"
 
-        "Ande" "Well, thank you for showing up to the game development club! In fact, I wouldn't mind if you showed up to my class tomorrow. I lost my Roblox gaming buddy last time..."
+        a "Well, thank you for showing up to the game development club! In fact, I wouldn't mind if you showed up to my class tomorrow. I lost my Roblox gaming buddy last time..."
         menu:
             "Thanks! I'll think about it!":
-                "Ande" "See you there! I'll reserve a seat!"
+                a "See you there! I'll reserve a seat!"
             "I don't know if that's allowed.":
-                "Ande" "Uhh..."
+                a "Uhh..."
                 menu:
                     "Thanks! I'll think about it!":
-                        "Ande" "See you there! I'll reserve a seat!"
+                        a "See you there! I'll reserve a seat!"
         jump chooseOfficerIntro
 
     label davidIntro:
-        "David" "Yo. We haven’t filled out each other’s bingos have we?"
+        d "Yo. We haven’t filled out each other’s bingos have we?"
         menu:
             "No, we have not.":
-                "David" "Well, what are you waiting for then?"
-                "David" "Your paper. Hand it over."
+                d "Well, what are you waiting for then?"
+                d "Your paper. Hand it over."
                 "You give David the {color=#ff0}Bingo Sheet{/color}."
             "Fill out my sheet already, bitch":
-                "David" "You!!!"
-                "David" "You would dare talk to an {color=#f0f}officer{/color} like that?"
-                "David" "{i}hehe... I hope they shit talk me more.{/i}"
-                "David" "Ahem."
-        "David" "I’m David, head of the game dev club’s intelligence division."
-        "David" "I like to play gacha games. Lots of gacha games."
-        "David" "My favorite character is ZhuoZhi. I spent $2000 dollars maxing her out."
-        "David" "{cps=100}But I’d pay double the amount of money for her to tie me down and...{/cps}"
-        "David" "..."
-        "David" "Ahem."
-        "David" "Sorry about that."
-        "David" "Someday, I’m going to make my own gacha game and max out all the characters for myself."
-        "David" "Here, let me fill out your bingo."
+                d "You!!!"
+                d "You would dare talk to an {color=#f0f}officer{/color} like that?"
+                d "{i}hehe... I hope they shit talk me more.{/i}"
+                d "Ahem."
+        d "I’m David, head of the game dev club’s intelligence division."
+        d "I like to play gacha games. Lots of gacha games."
+        d "My favorite character is ZhuoZhi. I spent $2000 dollars maxing her out."
+        d "{cps=100}But I’d pay double the amount of money for her to tie me down and...{/cps}"
+        d "..."
+        d "Ahem."
+        d "Sorry about that."
+        d "Someday, I’m going to make my own gacha game and max out all the characters for myself."
+        d "Here, let me fill out your bingo."
         "David fills out \"Has spent at least $1000 on a video game\"."
         "You got the {color=#ff0}Bingo Sheet{/color}."
-        "David" "By the way, do you like boba?"
-        "David" "If you do..?{w} I wouldn’t mind grabbing a drink with you tommorrow..."
+        d "By the way, do you like boba?"
+        d "If you do..?{w} I wouldn’t mind grabbing a drink with you tommorrow..."
         jump chooseOfficerIntro
 
     label sebastianIntro:
-        "Sebastian" "Uh, hi."
+        se "Uh, hi."
         menu:
             "Hello, I need your help filling out my bingo sheet!":
-                "Sebastian" "Uh, yeah sure."
+                se "Uh, yeah sure."
                 "You give Sebastian the {color=#ff0}Bingo Sheet{/color}."
-        "Sebastian" "Oh, yeah I do sing the {i}Super Smash Bros.{/i} intro in the shower!"
-        "Sebastian" "Wait, why is that on here."
-        "Sebastian" "Anyways, here you go."
+        se "Oh, yeah I do sing the {i}Super Smash Bros.{/i} intro in the shower!"
+        se "Wait, why is that on here."
+        se "Anyways, here you go."
         "You got the {color=#ff0}Bingo Sheet{/color}."
-        "Sebastian" "What's your name again?"
+        se "What's your name again?"
         menu:
             "{i}Say your real name{/i}":
-                "Sebastian" "Ok, I'll probably forget that immediately after this meeting, but nice to meet you!"
+                se "Ok, I'll probably forget that immediately after this meeting, but nice to meet you!"
             "{i}Say a fake name{/i}":
-                "Sebastian" "Ok, I'll probably forget that immediately after this meeting, but nice to meet you, Bugs Draxton!"
+                se "Ok, I'll probably forget that immediately after this meeting, but nice to meet you, Bugs Draxton!"
             "What's yours?":
-                "Sebastian" "Oh, well, uh my name is Sebastian but if you want to be like 53 percent niche you can call me Seabass."
-        "Sebastian" "I'm pretty new as an {color=#f0f}officer{/color} but it's a pretty nice club."
-        "Sebastian" "Some of the more long-time {color=#f0f}officers{/color} are a bit strange though."
+                se "Oh, well, uh my name is Sebastian but if you want to be like 53 percent niche you can call me Seabass."
+        se "I'm pretty new as an {color=#f0f}officer{/color} but it's a pretty nice club."
+        se "Some of the more long-time {color=#f0f}officers{/color} are a bit strange though."
         $ visited = []
         $ sebastianBut = False
         menu sebastianIntro1:
             set visited
             "Could I become an officer?":
-                "Sebastian" "An {color=#f0f}officer{/color}, you mean?"
-                "Sebastian" "Hah, you wouldn't want that."
+                se "An {color=#f0f}officer{/color}, you mean?"
+                se "Hah, you wouldn't want that."
             "Strange?":
-                "Sebastian" "I mean, they do their work so it's all chill but..."
+                se "I mean, they do their work so it's all chill but..."
                 $ sebastianBut = True
                 jump sebastianIntro1
             "What's your favorite part of the job?":
-                "Sebastian" "Has to be the pay."
-                "Sebastian" "One purple lego piece an hour."
+                se "Has to be the pay."
+                se "One purple lego piece an hour."
             "But..?" if sebastianBut:
-                "Sebastian" "But I can't help but feel as if..."
-                "Sebastian" "As if they're working on something."
-                "Sebastian" "..."
-                "Sebastian" "It's probably nothing."
+                se "But I can't help but feel as if..."
+                se "As if they're working on something."
+                se "..."
+                se "It's probably nothing."
                 $ secretStep1 = True
                 jump sebastianIntro1                        
 
-        "Sebastian" "It's pretty great, though. You should show up next week."
-        "Sebastian" "I'll see you around, yeah?"
+        se "It's pretty great, though. You should show up next week."
+        se "I'll see you around, yeah?"
         jump chooseOfficerIntro
 
     label endIntro:
-        "David" "We have a winner!"
-        "Ande" "Hey, uh, congrats!"
-        "Tom" "Very impressive."
+        d "We have a winner!"
+        a "Hey, uh, congrats!"
+        t "Very impressive."
         show syd standing concerned at weirdsydneyscale(0.45)
-        "Sydney" "How is the bingo... 6 long?"
+        s "How is the bingo... 6 long?"
         hide syd standing concerned at weirdsydneyscale(0.45)
-        "Sebastian" "Looks like now that we have a winner to our icebreaker, we can move on with our meeting!"
+        se "Looks like now that we have a winner to our icebreaker, we can move on with our meeting!"
         "As the other {color=#f0f}officers{/color} move to the projector, Anthony hands you something as a trophy."
         "You got the {color=#ff0}Ice Broken Reward{/color}."
         "It's a, uh, bottle of Dasani."
@@ -348,57 +355,57 @@ label start:
             "Most of the {color=#f0f}officers{/color} manage to slip you a smile during the slideshow."
         "Eventually, the club begins to wind down and people filter out."
         menu:
-            "Tell Anthony you want to talk more":
-                jump acceptedAnthony
+            # "Tell Anthony you want to talk more":
+            #     jump acceptedAnthony
             "Tell Tom you'd like to grab tea together" if secretStep2 == False:
                 jump acceptedTom
             "Meow at Sydney":
                 jump acceptedSydney
-            "Tell Ande you'd like to play Roblox together":
-                jump acceptedAnde
+            # "Tell Ande you'd like to play Roblox together":
+            #     jump acceptedAnde
             "Tell David you want to grab a drink together":
                 jump acceptedDavid
-            "Tell Sebastian you'd like to hang out":
-                jump acceptedSebastian
+            # "Tell Sebastian you'd like to hang out":
+            #     jump acceptedSebastian
 
         label acceptedAnthony:
-            "Anthony" "TEXT"
+            an "TEXT"
             $ officerDate = 1
             jump intermission
 
         label acceptedTom:
-            "Tom" "Hey, that's awesome!"
-            "Tom" "I can pick you up if you'd like, I always love driving."
-            "Tom" "Here, what days are you free..."
+            t "Hey, that's awesome!"
+            t "I can pick you up if you'd like, I always love driving."
+            t "Here, what days are you free..."
             "You both exchange {color=#ff0}Contact Information{/color}."
             $ officerDate = 2
             jump intermission
 
         label acceptedSydney:
             show syd standing happy2 at scale(0.45)
-            "Sydney" "{i}Mreeow meow mrraaahhh!{/i}"
+            s "{i}Mreeow meow mrraaahhh!{/i}"
             hide syd standing happy2 at scale(0.45)
             show syd standing happy at scale(0.45)
-            "Sydney" "A date? Yeah sure! I'd love that!"
-            "Sydney" "Oh yeah. I've got a great surprise idea."
+            s "A date? Yeah sure! I'd love that!"
+            s "Oh yeah. I've got a great surprise idea."
             hide syd standing happy at scale(0.45)
             "Sydney puts her hands over your eyes."
             $ officerDate = 3
             jump intermission
 
         label acceptedAnde:
-            "Ande" "TEXT"
+            a "TEXT"
             $ officerDate = 4
             jump intermission
 
         label acceptedDavid:
-            "David" "Wonderful!"
-            "David" "I'll see you friday after class!"
+            d "Wonderful!"
+            d "I'll see you Friday after class!"
             $ officerDate = 5
             jump intermission
 
         label acceptedSebastian:
-            "Sebastian" "TEXT"
+            se "TEXT"
             $ officerDate = 6
             jump intermission
 
@@ -416,10 +423,10 @@ label start:
                 scene bg_sky
                 "He extends a hand to help you board the mysterious contraption and the both of you woosh off!"
                 "The ride on ambiguopter is smooth and bumpy..."
-                "Tom" "Glad you were able to make this work out! It's good to see you! :)"
+                t "Glad you were able to make this work out! It's good to see you! :)"
                 "He's shouting over the noise of the... engines? Rotors? Distillation columns?"
                 "It's hard to tell what they are."
-                "Tom" "I built this thing myself! It even gets good mileage!!"
+                t "I built this thing myself! It even gets good mileage!!"
                 "You eventually begin to descend to a blue house. Tom manages to land on the fire escape. It's unclear whether or not this is an accident."
                 jump tomDate
             elif (officerDate == 3):
@@ -427,85 +434,26 @@ label start:
             elif (officerDate == 4):
                 jump andeDate
             elif (officerDate == 5):
+                "Some time passes until when you planned to meet David."
+                "You walk down the Ave after your last class to the address he sent you."
+                p "He said it should be near here..."
+                "David only sent an address. No time... Or any sort of elaboration."
+                d "Hi there. Where you waiting long?"
+                menu:
+                    "No, not at all":
+                        d "Great lets go in."
+                    "Yeah, you've kept me waiting for hours":
+                        d "I-is that so?"
+                        d "{i}oh my... they're glaring at me so harshly.{/i}"
+                        d "{i}my face's turning red.{/i}"
                 jump davidDate
             elif (officerDate == 6):
                 jump sebastianDate
         
-        label anthonyDate:
+        # label anthonyDate:
 
-        #label andeDate:
+        # label andeDate:
 
-        label davidDate:
-            default affection = 0
-            "You walk down the ave after your last class to the address David sent you."
-            p "He said it should be near here..."
-            "David only sent an address. No time... Or any sort of elaboration."
-            "David" "Hi there. Where you waiting long?"
-            menu:
-                "No, not at all":
-                    "David" "Great lets go in."
-                "Yeah, you've kept me waiting for hours":
-                    "David" "I-is that so?"
-                    "David" "{i}oh my... they're glaring at me so harshly.{/i}"
-                    "David" "{i}my face's turning red.{/i}"
-                    $ affection += 1
-            "The two of you walk into the boba place he's picked out."
-            "This run down place would definitely not be your first choice."
-            "David" "How do you like it?"
-            menu:
-                "It's alright.":
-                    "David" "Well, at least you don't hate it."
-                "What the h*** is this?":
-                    "David" "You don't like it?"
-                    "David" "I'm sorry, I should have picked a normaler place."
-                    "David" "{i}jeez.{/i}"
-                    "David" "{i}they're so blunt.{/i}"
-                    $ affection += 1
-            "David" "Anyways how has your day bee-"
-            "A notificaiton pops up on his phone as he is talking."
-            "David" "Oh crap! I nearly forgot to do my dailies."
-            "He pulls out a phone and starts tapping away."
-            menu:
-                "Uhm... What are you doing?":
-                    "He blushes."
-                "Stare at him":
-                    "..."
-                    "......"
-                    "........."
-                    "..."
-                    "......"
-                    "........."
-            "David" "Sorry about that."
-            "David" "I shouldn't be gaming while someone is talking to me."
-            menu:
-                "Yeah, no sh*t.":
-                    "David" "R-right."
-                    "David" "{i}oh...{/i}"
-                    "David" "{i}my does my face heat up they raise their voice?{/i}"
-                    $ affection += 1
-                "It's fine.":
-                    "David" "R-really?"
-                    $ affection -= 1
-            "David" "Anyhow?"
-            "David" "You play any gacha games?"
-            menu:
-                "Of course.":
-                    "David" "amazing!"
-                    "The two of you spend the next hour talking about gacha games."
-                    $ affection += 2
-                "What... no.":
-                    "The rest of time passes in awkward, though not entirely unbearable, silence."
-                    $ affection -= 1
-            "Eventually, it's time for you to head out... it's almost morning!"
-            if affection <= 1:
-                "David leads you out of the building."
-                "David" "Hey, it was... a time hanging out."
-                "David" "I'll see you around?"
-                "You achieved DAVID NEUTRAL ENDING."
-            else:
-                "TEXTTTTT"
-                "david bein down bad prolly"
-                "You achieved {color=#0ff}DAVID GOOD ENDING{/color}!"
-        label sebastianDate:
+        # label sebastianDate:
 
     return
