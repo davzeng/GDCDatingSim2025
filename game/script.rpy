@@ -690,7 +690,7 @@ label start:
                 "Sydney" "Um…"
                 "Sydney" "I had a really fun time today. And…"
                 "Sydney" "And I think I’ve fallen for you."
-                "Sydney" "(haha get it. fall? im not proud of this either.)"
+                "Sydney" "(haha get it. fall? i'm not proud of this either.)"
                 "Sydney" "We should do this again some time >///<"
                 menu:
                     "Haha, no!! I {i}never{/i} want to go skydiving again.":
