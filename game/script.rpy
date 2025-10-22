@@ -24,6 +24,11 @@ transform half_size:
 transform scale(ratio):
     zoom ratio
 
+transform weirdsydneyscale(ratio):
+    zoom ratio
+    anchor (0.0, 1.0)     # Bottom-left corner of the sprite
+    align (0.0, 1.0)      # Bottom-left corner of the screen
+
 
 label start:
     scene black
@@ -50,8 +55,9 @@ label start:
         "H-hey, is this the Game Dev club?":
             show syd standing happy2 at scale(0.45), right
             "Sydney" "Yeah! Come in, we've just started."
-
+            hide syd standing happy2 at scale(0.45), right
         "Oh, so this is be the Game Dev Club.":
+            hide dav cool happy at half_size
 
             "Tom" "Yes, that's us!"
     
@@ -274,22 +280,39 @@ label start:
         jump chooseOfficerIntro
 
     label sydneyIntro:
+        show syd standing happy2 at weirdsydneyscale(0.45)
         "Sydney" "Oh hi! I'm Sydney! Nice to meet you :) {i}meow{/i}"
+        hide syd standing happy2 at weirdsydneyscale(0.45)
         menu:
             "Meow?":
+                show syd arms neutral at scale(0.45)
                 "Sydney" "Oh yeah. You know. Meow meow?"
+                hide syd arms neutral at scale(0.45)
             "{i}Mrrrrrrrrr mmraa! Memeow?{/i}":
+                show syd arms happy2 at scale(0.45)
                 "Sydney" "{i}Meowmeowmeowmeow meowmeow meowmeow meeeooooowwww~{/i}"
+                hide syd arms happy2 at scale(0.45)
             "Uhh.. yeah it's nice to meet you too.":
+                show syd standing neutral2 at weirdsydneyscale(0.45)
                 "Sydney" "Uh yeah."
+                hide syd standing neutral2 at weirdsydneyscale(0.45)
 
+        show syd standing happy4 at weirdsydneyscale(0.45)
         "Sydney" "So yeah you've got a bingo sheet right? Let's see..."
+        hide syd standing happy4 at weirdsydneyscale(0.45)
+        show syd standing concerned at weirdsydneyscale(0.45)
         "Sydney" "\"Thinks fruits and vegetables came from {i}Stardew Valley{/i}\" uhh..."
+        hide syd standing concerned at scale(0.45)
+        show syd standing2 happy at weirdsydneyscale(0.45)
         "Sydney" "OMG yeah once I went to the state fair and was {color=#f00}SHOCKED{/color} to see pumpkins in real life."
         "Sydney" "I can’t believe they’d so shamelessly rip off Stardew like that!"
+        hide syd standing2 happy at weirdsydneyscale(0.45)
+        show syd standing2 doubtful at weirdsydneyscale(0.45)
         "Sydney" "They made it so you can even grow giant pumpkins too? What the fart..."
+        hide syd standing2 doubtful at weirdsydneyscale(0.45)
         menu:
             "Real life came first. Then {i}Stardew Valley{/i}.":
+            show syd shocked at weirdsydneyscale(0.45)
                 "Sydney" "{b}YOU TAKE THAT BACK!!!{/b}"
                 "Sydney" "..."
                 "Sydney" "Sorry, what I meant to say was... erm... you’re wrong. Yup! ;D"
@@ -512,29 +535,37 @@ label start:
         label sydneyDate:
             $ sydneyDateValue = 0
             "Everything’s dark since… y’know… Sydney has her hands over your eyes. She said she had a surprise date idea and you can’t help but feel… on edge."
-            show syd standing2 happy2 at scale(0.45)
+            show syd standing2 happy2 at weirdsydneyscale(0.45)
             "Sydney" "Suuuurrppppppppiiiiissseeee!!!"
-            hide syd standing2 happy2 at scale(0.45)
+            hide syd standing2 happy2 at weirdsydneyscale(0.45)
             "Her hands uncover your eyes to reveal... a plane's interior?"
-            show syd arms happy3 at scale(0.45)
+            show syd arms happy3 at scale(0.45), left
             "Sydney" "Y’know that saying ‘love is in the air’? Since this is our first date, I figured we should be in the air!"
             "Sydney" "To find love."
-            hide syd arms happy3 at scale(0.45)
-            show syd arms concerned at scale(0.45)
+            hide syd arms happy3 at scale(0.45), left
+            show syd arms concerned at scale(0.45), left
             "Sydney" "Yeah."
-            hide syd arms concerned at scale(0.45)
+            hide syd arms concerned at scale(0.45), left
             show syd thumbsup happy3 at scale(0.45)
             "Sydney" "We’re going skydiving!! Nothing’s more romantic than falling thousands of feet together!"
+            hide syd thumbsup happy3 at scale(0.45)
             menu:
                 "Ni hen mei ;)":
+                    show syd heart happy2 at scale(0.45)
                     "Sydney" "Hey thanks :D I don't get why you're telling me this now, but 謝謝!"
+                    show syd heart happy2 at scale(0.45)
                 "Can I sit this one out?":
                     $ sydneyDateValue -= 1
+                    show syd arms happy3 at scale(0.45)
                     "Sydney" "Hahahahaha!"
+                    hide syd arms happy3 at scale(0.45)
                 "What the helly poop fart balls.":
                     $ sydneyDateValue += 1
+                    show syd standing2 happy at scale(0.45)
                     "Sydney" "Woah! I thought I was the only one who said that. Twinsies!"
-                
+                    hide syd standing2 happy at scale(0.45)
+
+            show syd standing neutral at scale(0.45)
             "Sydney" "Alright, let’s go get our skydiving things ready so we can go into the sky and dive."
             "You got the {color=#ff0}Skydiving Gear{/color}."
             "You equipped the {color=#ff0}Skydiving Gear{/color}.\n{color=#f00}ATK{/color} +0 | {color=#00f}DEF{/color} +3 | {color=#0f0}LUC{/color} +1"
