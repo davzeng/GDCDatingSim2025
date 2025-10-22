@@ -40,7 +40,6 @@ transform weirdsydneyscale(ratio):
     align (0.0, 1.0)
 
 label start:
-    jump tomIntro
     scene black
 
     p "I'm late! I'm late!"
