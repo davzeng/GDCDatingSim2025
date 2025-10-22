@@ -45,7 +45,7 @@ label start:
             "David" "It's all good. Welcome in!"
 
         "H-hey, is this the Game Dev club?":
-            show syd_standing2_happy2 at half_size, right
+            show syd_standing_happy2 at half_size, right
             "Sydney" "Yeah! Come in, we've just started."
 
         "Oh, so this is be the Game Dev Club.":
@@ -585,7 +585,7 @@ label start:
                         "Sydney looks at you, her eyes telling you the same story."
                     "{i}to Sydney{/i} You're beautiful":
                         $ sydneyDateValue += 1
-                        "OH!! Well! Thank you <3"
+                        "OH!! Well! Thank you ^-^"
         
                 "Tom begins to press some buttons and turn some dials on the control panel of the levitating device."
                 "It seems as if he's about to leave, as the metal and wood under his feet begins to hum."
@@ -726,6 +726,8 @@ label start:
                 "The parachute opens in a normal and anticlimactic way."
                 "You achieved SYDNEY NEUTRAL ENDING."
                 return
+
+        label andeDate:
 
         label davidDate:
 
