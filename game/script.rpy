@@ -263,30 +263,48 @@ label start:
         jump chooseOfficerIntro
 
     label davidIntro:
+        show dav cool neutral at half_size
         d "Yo. We haven’t filled out each other’s bingos have we?"
         menu:
             "No, we have not.":
+                show dav standing neutral at half_size
                 d "Well, what are you waiting for then?"
+                show dav hand neutral2 at half_size
                 d "Your paper. Hand it over."
                 "You give David the {color=#ff0}Bingo Sheet{/color}."
             "Fill out my sheet already, bitch":
+                show dav standing upset at half_size
                 d "You!!!"
+                show dav standing concerned2 at half_size
                 d "You would dare talk to an {color=#f0f}officer{/color} like that?"
+                show dav hand happy2 at half_size
                 d "{i}hehe... I hope they shit talk me more.{/i}"
+                show dav cool neutral 3 at half_size
                 d "Ahem."
+        show dav standing happy2 at half_size
         d "I’m David, head of the game dev club’s intelligence division."
+        show dav cool neutral at half_size
         d "I like to play gacha games. Lots of gacha games."
+        show dav cool happy3 at half_size
         d "My favorite character is ZhuoZhi. I spent $2000 dollars maxing her out."
+        show dav hand happy2 at half_size
         d "{cps=100}But I’d pay double the amount of money for her to tie me down and...{/cps}"
+        show dav standing stare at half_size
         d "..."
+        show dav standing concerned at half_size
         d "Ahem."
+        show dav cool neutral3 at half_size
         d "Sorry about that."
+        show dav cool happy at half_size
         d "Someday, I’m going to make my own gacha game and max out all the characters for myself."
+        show dav hand pog at half_size
         d "Here, let me fill out your bingo."
         "David fills out \"Has spent at least $1000 on a video game\"."
         "You got the {color=#ff0}Bingo Sheet{/color}."
+        show dav standing happy at half_size
         d "By the way, do you like boba?"
-        d "If you do..?{w} I wouldn’t mind grabbing a drink with you tommorrow..."
+        show dav cool happy2 at half_sze
+        d "If you do..?{w} I wouldn’t mind grabbing a drink with you tomorrow..."
         jump chooseOfficerIntro
 
     label sebastianIntro:
@@ -437,13 +455,18 @@ label start:
                 "You walk down the Ave after your last class to the address he sent you."
                 p "He said it should be near here..."
                 "David only sent an address. No time... Or any sort of elaboration."
+                show dav standing happy at half_size
                 d "Hi there. Where you waiting long?"
                 menu:
                     "No, not at all":
+                        show dav standing happy3 at half_size
                         d "Great lets go in."
                     "Yeah, you've kept me waiting for hours":
+                        show dav standing concerned at half_size
                         d "I-is that so?"
+                        show dav hand concerned at half_size
                         d "{i}oh my... they're glaring at me so harshly.{/i}"
+                        show dav hand concerned2 at half_size
                         d "{i}my face's turning red.{/i}"
                 jump davidDate
             elif (officerDate == 6):
