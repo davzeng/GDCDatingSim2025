@@ -74,7 +74,7 @@ label tomIntro:
                 "I want to get into a passionate and deep relationship with you.":
                     show tom standing surprised at scale(0.45)
                     t "Oh! Wow! Uh."
-                    show tom bashful at scale(0.8)
+                    show tom bashful at left, scale(1.6)
                     t "Forward, aren't you?"
                     show tom standing happy4 at scale(0.45)
                     t "Well, you’ll just have to get to know me first. You can do that, can’t you?"
@@ -152,7 +152,7 @@ label tomIntro:
             "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
             show tom cross happy2 at scale(0.45)
             t "Oh wow! We really do have a lot in common don’t we?"
-            show tom bashful at scale (1.6)
+            show tom bashful at left, scale (1.6)
             t "Maybe we could, uh, put our Minecraft beds on adjacent blocks... if you wouldn’t mind..."
             t "..."
             show tom gesture happy3 at scale(0.45)
