@@ -727,8 +727,6 @@ label start:
                 "You achieved SYDNEY NEUTRAL ENDING."
                 return
 
-        label andeDate:
-
         label davidDate:
 
         label sebastianDate:
