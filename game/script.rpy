@@ -21,6 +21,13 @@ image bg_classroom:
 transform half_size:
     zoom 0.5
 
+transform scale(ratio):
+    zoom ratio
+
+transform weirdsydneyscale(ratio):
+    zoom ratio
+    anchor (0.0, 1.0)
+    align (0.0, 1.0)
 
 label start:
     scene black
@@ -28,6 +35,7 @@ label start:
     p "I'm late! I'm late!"
 
     scene bg_hall
+
 
     "The words echo in your head as you run across the hall."
 
@@ -43,16 +51,14 @@ label start:
         "H-hey, I'm sorry I'm late to club...":
             show dav cool happy at half_size
             "David" "It's all good. Welcome in!"
-
+            hide dav cool happy at half_size
         "H-hey, is this the Game Dev club?":
-            show syd_standing2_happy2 at half_size, right
+            show syd standing happy2 at weirdsydneyscale(0.45), right
             "Sydney" "Yeah! Come in, we've just started."
-
+            hide syd standing happy2 at weirdsydneyscale(0.45), right
         "Oh, so this is be the Game Dev Club.":
-
             "Tom" "Yes, that's us!"
     
-    show dav standing happy2 at half_size
     "Tom" "Welcome in, welcome in!"
 
     "Sebastian" "We make games here!"
@@ -79,10 +85,17 @@ label start:
     "Tom" "We meet on {color=#ff0}Wednesdays at 5:00{/color} each week!"
     "Tom" "A lot of people here have made games before but a lot of people here are new to it."
     "Tom" "Like you might be, yeah?"
+
+    show syd standing happy2 at weirdsydneyscale(0.45)
     "Sydney" "We try to keep the club super beginner friendly! :D"
     "Sydney" "We’ll have meetings on, say, art or music or..."
+    hide syd standing happy2 at weirdsydneyscale(0.45)
+    show syd standing neutral at weirdsydneyscale(0.45)
     "Ande" "{b}OR PROGRAMMING!{/b}"
+    hide syd standing neutral at weirdsydneyscale(0.45)
+    show syd standing happy2 at weirdsydneyscale(0.45)
     "Sydney" "...and right now we're{fast} doing a bit of an icebreaker activity!"
+    hide syd standing happy2 at weirdsydneyscale(0.45)
     "Sebastian" "Here's a bingo sheet, try to fill it out as best as you can. ;)"
 
     "Sebastian handed you the {color=#ff0}Bingo Sheet{/color}."
@@ -270,34 +283,6 @@ label start:
 
         jump chooseOfficerIntro
 
-    label sydneyIntro:
-        "Sydney" "Oh hi! I'm Sydney! Nice to meet you :) {i}meow{/i}"
-        menu:
-            "Meow?":
-                "Sydney" "Oh yeah. You know. Meow meow?"
-            "{i}Mrrrrrrrrr mmraa! Memeow?{/i}":
-                "Sydney" "{i}Meowmeowmeowmeow meowmeow meowmeow meeeooooowwww~{/i}"
-            "Uhh.. yeah it's nice to meet you too.":
-                "Sydney" "Uh yeah."
-
-        "Sydney" "So yeah you've got a bingo sheet right? Let's see..."
-        "Sydney" "\"Thinks fruits and vegetables came from {i}Stardew Valley{/i}\" uhh..."
-        "Sydney" "OMG yeah once I went to the state fair and was {color=#f00}SHOCKED{/color} to see pumpkins in real life."
-        "Sydney" "I can’t believe they’d so shamelessly rip off Stardew like that!"
-        "Sydney" "They made it so you can even grow giant pumpkins too? What the fart..."
-        menu:
-            "Real life came first. Then {i}Stardew Valley{/i}.":
-                "Sydney" "{b}YOU TAKE THAT BACK!!!{/b}"
-                "Sydney" "..."
-                "Sydney" "Sorry, what I meant to say was... erm... you’re wrong. Yup! ;D"
-            "And they had the audacity to take cauliflower too!":
-                "Sydney" "I know right! You get it."
-            "...":
-                "Sydney" "Don’t give me that face, you know I’m right."
-        
-        "Sydney" "Well, good chatting with you! If you ever want to hang out let's do that! Sydney OUT!"
-        jump chooseOfficerIntro
-
     label andeIntro:
         "Ande" "Hey..."
         $ visited = []
@@ -373,8 +358,8 @@ label start:
         "David" "Here, let me fill out your bingo."
         "David fills out \"Has spent at least $1000 on a video game\"."
         "You got the {color=#ff0}Bingo Sheet{/color}."
-        "David" "By the way, I’m practicing my cosplay for a convention tomorrow."
-        "David" "If you happen to be a weeb too...{w} I wouldn’t mind it if you came as well..."
+        "David" "By the way, do you like boba?"
+        "David" "If you do..?{w} I wouldn’t mind grabbing a drink with you tommorrow..."
         jump chooseOfficerIntro
 
     label sebastianIntro:
@@ -427,7 +412,9 @@ label start:
         "David" "We have a winner!"
         "Ande" "Hey, uh, congrats!"
         "Tom" "Very impressive."
+        show syd standing concerned at weirdsydneyscale(0.45)
         "Sydney" "How is the bingo... 6 long?"
+        hide syd standing concerned at weirdsydneyscale(0.45)
         "Sebastian" "Looks like now that we have a winner to our icebreaker, we can move on with our meeting!"
         "As the other {color=#f0f}officers{/color} move to the projector, Anthony hands you something as a trophy."
         "You got the {color=#ff0}Ice Broken Reward{/color}."
@@ -448,7 +435,7 @@ label start:
                 jump acceptedSydney
             "Tell Ande you'd like to play Roblox together":
                 jump acceptedAnde
-            "Tell David you want to practice cosplay together":
+            "Tell David you want to grab a drink together":
                 jump acceptedDavid
             "Tell Sebastian you'd like to hang out":
                 jump acceptedSebastian
@@ -464,9 +451,13 @@ label start:
             jump intermission
 
         label acceptedSydney:
+            show syd standing happy2 at scale(0.45)
             "Sydney" "{i}Mreeow meow mrraaahhh!{/i}"
+            hide syd standing happy2 at scale(0.45)
+            show syd standing happy at scale(0.45)
             "Sydney" "A date? Yeah sure! I'd love that!"
             "Sydney" "Oh yeah. I've got a great surprise idea."
+            hide syd standing happy at scale(0.45)
             "Sydney puts her hands over your eyes."
             $ officerDate = 3
             jump intermission
@@ -477,7 +468,8 @@ label start:
             jump intermission
 
         label acceptedDavid:
-            "David" "TEXT"
+            "David" "Wonderful!"
+            "David" "I'll see you friday after class!"
             $ officerDate = 5
             jump intermission
 
@@ -505,231 +497,75 @@ label start:
 
         label tomDate:
 
-        label sydneyDate:
-            $ sydneyDateValue = 0
-            "Everything’s dark since… y’know… Sydney has her hands over your eyes. She said she had a surprise date idea and you can’t help but feel… on edge."
-            "Sydney" "Suuuurrppppppppiiiiissseeee!!!"
-            "Her hands uncover your eyes to reveal... a plane's interior?"
-            "Sydney" "Y’know that saying ‘love is in the air’? Since this is our first date, I figured we should be in the air!"
-            "Sydney" "To find love."
-            "Sydney" "Yeah."
-            "Sydney" "We’re going skydiving!! Nothing’s more romantic than falling thousands of feet together!"
-            menu:
-                "Ni hen mei ;)":
-                    "Sydney" "Hey thanks :D I don't get why you're telling me this now, but 謝謝!"
-                "Can I sit this one out?":
-                    $ sydneyDateValue -= 1
-                    "Sydney" "Hahahahaha!"
-                "What the helly poop fart balls.":
-                    $ sydneyDateValue += 1
-                    "Sydney" "Woah! I thought I was the only one who said that. Twinsies!"
-                
-            "Sydney" "Alright, let’s go get our skydiving things ready so we can go into the sky and dive."
-            "You got the {color=#ff0}Skydiving Gear{/color}."
-            "You equipped the {color=#ff0}Skydiving Gear{/color}.\n{color=#f00}ATK{/color} +0 | {color=#00f}DEF{/color} +3 | {color=#0f0}LUC{/color} +1"
-            "Sydney" "All geared up! You ready?"
-            menu:
-                "Hahahaha!":
-                    $ sydneyDateValue -= 1
-                    "Sydney" "Why are you laughing...?"
-                    "Sydney" "Well, no matter."
-                    "Sydney pushes you off, then jumps off herself."
-                    "Your eyes snap shut and a deep plummetting feeling sinks across your body."
-                    "Cold wind slices against you, tumbling, twirling."
-                    "You open your eyes."
-                    "Sydney" "WHHEEEEEEEEEEEEEE!!!"
-                "Ready as I'll ever be!":
-                    "Sydney" "“Yah yah yah yah yah yah yah!! That’s a good place to be lfgggggg!"
-                    "Sydney" "Alright on the count of three..."
-                    "Sydney" "3..."
-                    "Sydney" "2..."
-                    "You jump."
-                    "Sydney" "HEY! WTF I didn't get to one!!"
-                    "Sydney jumps after you!"
-                "Isshoni yarou~":
-                    $ sydneyDateValue += 1
-                    "Sydney" "Awwww you’re sugoku kawaii!!! 恋愛マイスターっぽい~"
-                    "Sydney" "Ok let’s do it together!"
-                    "You hold hands and JUMP!"
-                
-            "As you're both falling, you notice you have company."
-            "Tom" "Hey, uh. I didn't expect to see... you guys here."
-            "Tom comes in, zooming. He’s standing on some sort of flying contraption. Unlike some folks, he isn’t free-falling from the sky."
-            if secretStep2:
-                "Sydney" "I thought you were coming here tomorrow??"
-                "Tom" "I think we can do it today, but... why're they here?"
-                "Tom" "Is this..?"
-                menu:
-                    "We're on a date.":
-                        $ sydneyDateValue += 1
-                        "A look of understanding dawns on Tom's face and he seems to relax."
-                        "Tom" "Oh! I don't mean to intrude!"
-                        "Tom" "I do love a good day in the troposphere."
-                    "I, erm, don't really know.":
-                        $ sydneyDateValue -= 1
-                        "Tom" "Sydney, what's, uh, happening?"
-                        "Sydney" "We're just... hanging out. I didn't think you'd be advancing the operation to today."
-                    "Wouldn't you like to know!?":
-                        "Tom" "Sydney, what's, uh, happening?"
-                        "Sydney" "I didn't think you'd be advancing the operation to today."
-                
-                "You catch a glimpe of several glass canisters brimming with {color=#add8e6}air essence{/color}."
-                menu:
-                    "What're those? {i}point at canisters{/i}":
-                        "Sydney" "Hey, let's focus on the skydiving yeah!"
-                        "Sydney" "You should just, y'know, forget all of this I think!"
-                    "{i}to Tom{/i} What are you doing?":
-                        "Tom" "I'm just..."
-                        "Tom" "I'm working on a project."
-                        "Tom" "That's all you need to know."
-                        "Sydney looks at you, her eyes telling you the same story."
-                    "{i}to Sydney{/i} You're beautiful":
-                        $ sydneyDateValue += 1
-                        "OH!! Well! Thank you <3"
-        
-                "Tom begins to press some buttons and turn some dials on the control panel of the levitating device."
-                "It seems as if he's about to leave, as the metal and wood under his feet begins to hum."
-                menu:
-                    "{i}Leap onto Tom's craft.{/i}":
-                        "Sydney" "No!!"
-                        "Tom" "Agh!!!"
-                        "You swoop onto the deck of the vague machine, clutching a metal protrusion."
-                        "The entire construction is humming loudly. The glass canisters rattle and one breaks free from its bindings."
-                        "Tom" "No, hey! Don't! Please!"
-                        "The canister shatters, spewing {color=#add8e6}air essence{/color}. The machine plummets from Sydney's course and you lose sight of her."
-                        "The aircraft tilts and you grasp tighter, struggling to keep your grip."
-                        "You notice Tom seems to have hit his head. He's unconscious."
-                        "The machine spins more and more, the ground creeps ever closer as a massive wall of little houses and trees."
-                        "It seems the craft it still attempting to navigate somewhere in this uncontrolled fall."
-                        menu:
-                            "{i}Leap off and activate your parachute{/i}":
-                                "You begin to leap from the failing machine, sparing one last glance at Tom before you do."
-                                "You jump and begin to reach for your parachute cord."
-                                "Yet, no more than three seconds after your foot leaves the deck, a seagull collides with the left side of your head."
-                                "And then there is nothing but darkness."
-                                "You plummet to the ground."
-                                "You have died."
-                                return
-                            "{i}Grab Tom, leap off, and activate your parachute{/i}":
-                                "You hoist Tom and buckle him hastily to your parachute gear and roll off the edge of the spiralling machine."
-                                "Seconds later, you yank the parachute cord... and..."
-                                "A parachute unfurls out behind you, the instant drag giving you both a tug."
-                                "For some reason, small heart shaped balloons come out as well."
-                                "The machine, now little more than a hodgepodge of splintered wood and twisted metal, crashes into the room of a blue house below you."
-                        "You steer to follow and descend into the hole."
-                        jump secretDate
-                    "{i}Ignore him.{/i}":
-                        "Another instant later, the humming reaches a peak and the machine zips off!"
-                        "Sydney seems to breathe a sigh of relief."
 
-            else:
-                "Tom" "Hey, how about I rescue you from this mess and show you an actually good time!"
-                "Sydney" "HEY!!"
-                "Tom" "Oh, I'm not talking to you Sydney. You’re on your own."
-                "Sydney" "{i}{color=#f00}angry{/color} noises{/i}"
-                "Tom" "Just sayin', the ground there..."
-                "He looks down over the edge of his ambiguous flying machine."
-                "Tom" "...is looking awfully close."
-                "Tom" "Say the word and we can just chill out at my place! Have some tea, play some video games, y'know?"
-                menu:
-                    "Without risk there is no reward. The path of wisdom lights itself only whence you, idk, go skydiving.":
-                        "Tom begins to weep at your wordsmithing and zooms away in a blink."
-                        $ sydneyDateValue += 1
-                        "Sydney" "“What eloquence!! What grace! With which you just conducted yourself! With your words!!"
-                    "Agachate y conocelo agapate bueno bueno pan de de pan-":
-                        "Tom and Sydney" "?????"
-                        "Sydney" "Ehh… ¿que? I don’t understand..."
-                        "Tom" "Yo tampoco… I didn’t get that so I guess I’ll just leave?"
-                        "Sydney" "Ok, bye!"
-                        "Tom leaves on his flying object. Away he goes."
-                    "Please please PLEASE take me with you!!!":
-                        $ sydneyDateValue -= 1
-                        "Sydney" "Pthbthbthbthhbhb."
-                        "Tom" "Yessir, here we go!"
-                        menu:
-                            "Thank you thank you thank you!":
-                                "You board Tom’s flying thingy and the two of you zoom off."
-                                "In the distance, you see Sydney stick her tongue out at the both of you before she grows wings and flies away herself."
-                                "You fly back down to the ground and land at Tom's house."
-                                "Tom" "Safe flight! Nice. I only hit that landing half the time."
-                                "Tom" "Come inside, come inside!"
-                                jump tomDate
-                            "PSYCHEEEEE!":
-                                "Tom" "Oh. Uh...ok?"
-                                "Sydney" "huh..."
-            "Sydney" "So where were we?"
-            "Sydney" "Oh yeah! We’re still dropping from the sky."
-            "Sydney" "How about let’s play 2 truths, 1 lie! Let me think… two truths, one lie…"
-            "Sydney" "Ok, my two truths, one lie.\n(INCOMING! SLUSHY NOOBZ REFERENCE! ok)"
-            "Sydney" "I have five toes... on one foot...{p}I fingered my ass once...{p}...and I've been to Iceland."
-            "Sydney" "Ok, which one's the {color=#f00}lie{/color}?"
-            menu:
-                "The five toes one.":
-                    "Sydney" "I actually have 5 toes! 5 toes on each feets!"
-                    "Sydney" "You…you think I’ve fingered my ass before…?"
-                "The ass one.":
-                    $ sydneyDateValue += 1
-                    "Sydney" "I actually have fingered my ass once!"
-                    "Sydney" "But I’m glad you don’t think I have."
-                "Iceland?":
-                    $ sydneyDateValue -= 1
-                    "Sydney" "I actually have been to Iceland before!"
-                    "Sydney" "You…you think I’ve fingered my ass before…?"
 
-            "Sydney" "Ok, we’re close!! You ready to pull the parachute?"
-            "You both pull open your parachutes."
-            if sydneyDateValue > 1:
-                "Your parachutes open and out come a swarm of heart-shaped balloons."
-                "The clouds part to make way for the sun’s gentle light, bathing you two in its warmth."
-                "You look into each other’s eyes, mesmerized by the {color=#d1a054}honey gold{/color} in hers and the also whatever pretty color is in yours."
-                "A baby with wings flies close to you and you feel a prick on your…butt?\n{color=#0f9}HP{/color} -1"
-                "You see Sydney also get hit by this baby’s heart-shaped arrow. Her head’s bleeding."
-                "As you touch down onto land, Sydney (still bleeding from the wound) holds up one of the heart-shaped balloons."
-                "Sydney" "Here, a gift."
-                "Suddenly, she’s having a hard time keeping eye contact with you."
-                "Sydney" "Um…"
-                "Sydney" "I had a really fun time today. And…"
-                "Sydney" "And I think I’ve fallen for you."
-                "Sydney" "(haha get it. fall? i'm not proud of this either.)"
-                "Sydney" "We should do this again some time >///<"
-                menu:
-                    "Haha, no!! I {i}never{/i} want to go skydiving again.":
-                        "Sydney" "Oh. I mean, I guess it doesn’t have to be skydiving."
-                        "Sydney" "Umm ok bye? I’ll text you? I guess?"
-                    "Same time tomorrow?":
-                        "Sydney" "What the helly fart balls. I’m all skydived-out."
-                        "Sydney" "Next time let’s go to a public park and run and scream until they kick us out! It’ll be fun :D"
-                        "Sydney" "Byee I’ll send you a carrier pigeon!"
-                "You achieved {color=#0ff}SYDNEY GOOD ENDING{/color}!"
-                return
-            elif sydneyDateValue < -1:
-                "We pulled the parachute…right? Why isn’t anything happening…?"
-                "Sydney" "LET ME TRY PULLING IT AGAINNN!!!"
-                "Sydney" "Yeah... nope!"
-                "You two plummet to the ground."
-                "Sydney zooms past you and lands first. Oof."
-                "The ground grows closer and closer, until…"
-                "{i}crunch{/i}"
-                "..."
-                "..."
-                "You wake suddenly. Where are you…? You can’t seem to remember anything."
-                "It’s bright but unsettling. What’s going on?"
-                "In the corner of your eye, you see a familiar face."
-                "You turn to them, but can’t seem to figure out where you know them from."
-                "Sydney" "Oh hi I'm Sydney! Nice to meet you :) {i}meow{/i}"
-                "You realize where you are now. This is the evil zone."
-                "The stupid chungus evil Sydney zone. Where you’ll be forever."
-                "Bummer."
-                "You achieved {color=#d00}SYDNEY BAD ENDING{/color}."
-                return
-            else:
-                "The parachute opens in a normal and anticlimactic way."
-                "You achieved SYDNEY NEUTRAL ENDING."
-                return
-
-        label andeDate:
+        #label andeDate:
 
         label davidDate:
+            default affection = 0
+            "You walk down the ave after your last class to the address David sent you."
+            p "He said it should be near here..."
+            "David only sent an address. No time... Or any sort of elaboration."
+            "David" "Hi there. Where you waiting long?"
+            menu:
+                "No, not at all":
+                    "David" "Great lets go in."
+                "Yeah, you've kept me waiting for hours":
+                    "David" "I-is that so?"
+                    "David" "{i}oh my... they're glaring at me so harshly.{/i}"
+                    "David" "{i}my face's turning red.{/i}"
+                    $ affection += 1
+            "The two of you walk into the boba place he's picked out."
+            "This run down place would definitely not be your first choice."
+            "David" "How do you like it?"
+            menu:
+                "It's alright.":
+                    "David" "Well, at least you don't hate it."
+                "What the h*** is this?":
+                    "David" "You don't like it?"
+                    "David" "I'm sorry, I should have picked a normaler place."
+                    "David" "{i}jeez.{/i}"
+                    "David" "{i}they're so blunt.{/i}"
+                    $ affection += 1
+            "David" "Anyways how has your day bee-"
+            "A notificaiton pops up on his phone as he is talking."
+            "David" "Oh crap! I nearly forgot to do my dailies."
+            "He pulls out a phone and starts tapping away."
+            menu:
+                "Uhm... What are you doing?":
+                    "He blushes."
+                "Stare at him":
+                    "..."
+                    "......"
+                    "........."
+                    "..."
+                    "......"
+                    "........."
+            "David" "Sorry about that."
+            "David" "I shouldn't be gaming while someone is talking to me."
+            menu:
+                "Yeah, no sh*t":
+                    "David" "R-right."
+                    "David" "{i}oh...{/i}"
+                    "David" "{i}my does my face heat up they raise their voice?{/i}"
+                    $ affection += 1
+                "It's fine":
+                    "David" "R-really?"
+                    $ affection -= 1
+            "David" "Anyhow?"
+            "David" "You play any gacha games?"
+            menu:
+                "Of course":
+                    "David" "amazing!"
+                    "The two of you spend the next hour talking about gacha games."
+                    $ affection += 2
+                "What... no":
+                    "The rest of time passes in awkward, though not entirely unbearable, silence."
+                    $ affection -= 1
+            
+
+
+            
 
         label sebastianDate:
 
