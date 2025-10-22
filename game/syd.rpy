@@ -16,6 +16,12 @@ transform weirdsydneyscale(ratio):
     anchor (0.0, 1.0)
     align (0.0, 1.0)
 
+transform friend():
+    anchor (0.5, 0.5)
+    align (0.5, 0.5)
+    zoom 0.2
+
+
 init python:
     def sydneyshow(img_name):
         if "arms" in img_name:
@@ -28,17 +34,7 @@ init python:
         Hides the image by name.
         """
         renpy.hide(img_name)
-
-    def sydneyfadeout(img_name, fade_time=2.0):
-        """
-        Slowly fades out and hides a specific image.
-        Default fade_time = 2.0 seconds (adjust as needed).
-        """
-        # This first line triggers the dissolve fade visually
-        renpy.with_statement(Dissolve(fade_time))
-
-        # Then the sprite is actually hidden after the fade
-        renpy.hide(img_name)
+        
 
 
 label sydneyIntro:
@@ -97,7 +93,7 @@ label sydneyIntro:
         $ sydneyshow("syd standing happy4")
         "Sydney" "Well, good chatting with you! If you ever want to hang out let's do that!"
         "Sydney" "Sydney OUT!"
-        $ sydneyfadeout("syd standing happy4", fade_time=3.0)
+        $ sydneyhide("syd standing happy4")
         hide syd standing happy4 at weirdsydneyscale(0.45)
         jump chooseOfficerIntro
 
@@ -106,10 +102,8 @@ label sydneyDate:
     scene black
     "Everything’s dark since… y’know… Sydney has her hands over your eyes."
     "She said she had a surprise date idea and you can’t help but feel… on edge."
-    show syd standing2 happy2 at weirdsydneyscale(0.45)
     "Sydney" "Suuuurrppppppppiiiiissseeee!!!"
-    hide syd standing2 happy2 at weirdsydneyscale(0.45)
-    "Her hands uncover your eyes to reveal... a plane's interior?"
+    "Her hands uncover your eyes to reveal... the inside of a plane?"
     scene bg_plane
     $ sydneyshow("syd arms happy3")
     "Sydney" "Y’know that saying ‘love is in the air’? Since this is our first date, I figured we should be in the air!"
@@ -151,9 +145,9 @@ label sydneyDate:
             $ sydneyshow("syd arms thinking")
             "Sydney" "Why are you laughing...?"
             $ sydneyhide("syd arms thinking")
-            $ sydshow("syd arms happy3")
+            $ sydneyshow("syd arms happy3")
             "Sydney" "Well, no matter."
-            $ sydhide("syd arms happy3")
+            $ sydneyhide("syd arms happy3")
             "Sydney pushes you off, then jumps off herself."
             scene black
             "Your eyes snap shut and a deep plummetting feeling sinks across your body."
@@ -192,57 +186,77 @@ label sydneyDate:
     "As you're both falling, you notice you have company."
     $ sydneyshow("syd standing2 doubtful")
     "Tom" "Hey, uh. I didn't expect to see... you guys here."
+    show tom standing concerned at scale(0.45), right
     "Tom comes in, zooming. He’s standing on some sort of flying contraption. Unlike some folks, he isn’t free-falling from the sky."
+    hide tom standing concerned at scale(0.45), right
     $ sydneyhide("syd standing2 doubtful")
     if secretStep2:
         $ sydneyshow("syd standing2 happy")
+        show tom standing concerned at scale(0.45), right
         "Sydney" "I thought you were coming here tomorrow??"
+        hide tom standing concerned at scale(0.45), right
+        show tom standing doubtful2 at scale(0.45), right
         "Tom" "I think we can do it today, but... why're they here?"
         "Tom" "Is this..?"
+        hide tom standing doubtful2 at scale(0.45), right
         $ sydneyhide("syd standing2 happy")
         menu:
             "We're on a date.":
                 $ sydneyDateValue += 1
                 "A look of understanding dawns on Tom's face and he seems to relax."
+                show tom standing happy at scale(0.45), right
                 "Tom" "Oh! I don't mean to intrude!"
                 "Tom" "I do love a good day in the troposphere."
+                hide tom standing happy at scale(0.45), right
             "I, erm, don't really know.":
                 $ sydneyDateValue -= 1
                 $ sydneyshow("syd standing2 happy")
+                show tom standing doubtful3 at scale(0.45), right
                 "Tom" "Sydney, what's, uh, happening?"
                 $ sydneyhide("syd standing2 happy")
                 $ sydneyshow("syd standing2 neutral")
                 "Sydney" "We're just... hanging out. I didn't think you'd be advancing the operation to today."
+                hide tom standing doubtful3 at scale(0.45), right
                 $ sydneyhide("syd standing2 neutral")
             "Wouldn't you like to know!?":
                 $ sydneyshow("syd standing2 happy")
+                show tom standing doubtful3 at scale(0.45), right
                 "Tom" "Sydney, what's, uh, happening?"
                 $ sydneyhide("syd standing2 happy")
                 $ sydneyshow("syd standing2 thinking")
+                hide tom standing doubtful3 at scale(0.45), right
+                show tom standing shocked at scale(0.45), right
                 "Sydney" "I didn't think you'd be advancing the operation to today."
                 $ sydneyhide("syd standing2 thinking")
+                hide tom standing shocked at scale(0.45), right
 
         "You catch a glimpe of several glass canisters brimming with {color=#add8e6}air essence{/color}."
         menu:
             "What're those? {i}point at canisters{/i}":
+                show tom standing happy at scale(0.45), right
                 $ sydneyshow("syd thumbsup happy")
                 "Sydney" "Hey, let's focus on the skydiving yeah!"
                 $ sydneyhide("syd thumbsup happy")
                 $ sydneyshow("syd thumbsup happy2")
                 "Sydney" "You should just, y'know, forget all of this I think!"
                 $ sydneyhide("syd thumbsup happy2")
+                hide tom standing happy at scale(0.45), right
             "{i}to Tom{/i} What are you doing?":
                 $ sydneyshow("syd thumbsup happy")
+                show tom standing happy2 at scale(0.45), right
                 "Tom" "I'm just..."
                 "Tom" "I'm working on a project."
                 "Tom" "That's all you need to know."
                 "Sydney looks at you, her eyes telling you the same story."
                 $ sydneyhide("syd thumbsup happy")
+                hide tom standing happy2 at scale(0.45), right
             "{i}to Sydney{/i} You're beautiful":
                 $ sydneyDateValue += 1
+                show tom standing happy4 at scale(0.45), right
                 $ sydneyshow("syd heart happy2")
                 "OH!! Well! Thank you ^-^"
                 $ sydneyhide("syd heart happy2")
+                hide tom standing happy4 at scale(0.45), right
 
         "Tom begins to press some buttons and turn some dials on the control panel of the levitating device."
         "It seems as if he's about to leave, as the metal and wood under his feet begins to hum."
@@ -251,10 +265,14 @@ label sydneyDate:
                 $ sydneyshow("syd shocked")
                 "Sydney" "No!!"
                 $ sydneyhide("syd shocked")
+                show tom standing shocked at scale(0.45), right
                 "Tom" "Agh!!!"
+                hide tom standing shocked at scale(0.45), right
                 "You swoop onto the deck of the vague machine, clutching a metal protrusion."
                 "The entire construction is humming loudly. The glass canisters rattle and one breaks free from its bindings."
+                show tom standing shocked at scale(0.45), right
                 "Tom" "No, hey! Don't! Please!"
+                hide tom standing shocked at scale(0.45), right
                 "The canister shatters, spewing {color=#add8e6}air essence{/color}. The machine plummets from Sydney's course and you lose sight of her."
                 "The aircraft tilts and you grasp tighter, struggling to keep your grip."
                 "You notice Tom seems to have hit his head. He's unconscious."
@@ -284,18 +302,34 @@ label sydneyDate:
                 $ sydneyhide("syd standing neutral2")
 
     else:
+        show tom standing happy at scale(0.45), right
+        $ sydneyshow("syd standing2 doubtful")
         "Tom" "Hey, how about I rescue you from this mess and show you an actually good time!"
+        $ sydneyhide("syd standing2 doubtful")
         $ sydneyshow("syd arms thinking")
         "Sydney" "HEY!!"
+        hide tom standing happy at scale(0.45), right
+        show tom standing surprised at scale(0.45), right
         "Tom" "Oh, I'm not talking to you Sydney. You’re on your own."
+        hide tom standing surprised at scale(0.45), right
         $ sydneyhide("syd arms thinking")
         $ sydneyshow("syd arms concerned")
+        show tom standing happy4 at scale(0.45), right
         "Sydney" "*{i}{color=#f00}angry{/color} noises{/i}*"
+        hide tom standing happy4 at scale(0.45), right
+        show tom standing surprised at scale(0.45), right
         "Tom" "Just sayin', the ground there..."
         "He looks down over the edge of his ambiguous flying machine."
+        hide tom standing surprised at scale(0.45), right
+        $ sydneyhide("syd arms concerned")
+        show tom standing surprised at scale(0.45), right
+        $ sydneyshow("syd arms concerned")
         "Tom" "...is looking awfully close."
+        hide tom standing surprised at scale(0.45), right
+        show tom standing happy3 at scale(0.45), right
         "Tom" "Say the word and we can just chill out at my place! Have some tea, play some video games, y'know?"
         $ sydneyhide("syd arms concerned")
+        hide tom standing happy3 at scale(0.45), right
         menu:
             "Without risk there is no reward. The path of wisdom lights itself only whence you, idk, go skydiving.":
                 "Tom begins to weep at your wordsmithing and zooms away in a blink."
@@ -304,34 +338,47 @@ label sydneyDate:
                 "Sydney" "“What eloquence!! What grace! With which you just conducted yourself! With your words!!"
                 $ sydneyhide("syd shocked2")
             "Agachate y conocelo agapate bueno bueno pan de de pan-":
-                $ sydneyshow("syd arms concerned")
+                $ sydneyshow("syd arms doubtful")
+                show tom standing wince at scale(0.45), right
                 "Tom and Sydney" "?????"
                 "Sydney" "Ehh… ¿que? I don’t understand..."
+                hide tom standing wince at scale(0.45), right
+                show tom gesture concerned at scale(0.45), right
                 "Tom" "Yo tampoco… I didn’t get that so I guess I’ll just leave?"
-                $ sydneyhide("syd arms concerned")
+                $ sydneyhide("syd arms doubtful")
                 $ sydneyshow("syd thumbsup neutral")
                 "Sydney" "Ok, bye!"
-                $ sydneyhide("syd thumbsup neutral")
+                hide tom gesture concerned at scale(0.45), right
                 "Tom leaves on his flying object. Away he goes."
+                $ sydneyhide("syd thumbsup neutral")
             "Please please PLEASE take me with you!!!":
                 $ sydneyDateValue -= 1
-                $ sydneyshow("")
+                show tom standing happy4 at scale(0.45), right
+                $ sydneyshow("syd standing2 concerned")
                 "Sydney" "Pthbthbthbthhbhb."
                 "Tom" "Yessir, here we go!"
-                $ sydneyhide("")
+                $ sydneyhide("syd standing2 concerned")
+                hide tom standing happy4 at scale(0.45), righ
                 menu:
                     "Thank you thank you thank you!":
                         "You board Tom’s flying thingy and the two of you zoom off."
                         "In the distance, you see Sydney stick her tongue out at the both of you before she grows wings and flies away herself."
                         "You fly back down to the ground and land at Tom's house."
+                        show tom gesture happy3 at scale(0.45)
                         "Tom" "Safe flight! Nice. I only hit that landing half the time."
+                        hide tom gesture happy3 at scale(0.45)
+                        show tom gesture happy at scale(0.45)
                         "Tom" "Come inside, come inside!"
+                        hide tom gesture happy at scale(0.45)
                         jump tomDate
                     "PSYCHEEEEE!":
-                        "Tom" "Oh. Uh...ok?"
+                        show tom standing doubtful2 at scale(0.45), right
                         $ sydneyshow("syd standing2 neutral")
+                        "Tom" "Oh. Uh...ok?"
                         "Sydney" "huh..."
                         $ sydneyhide("syd standing2 neutral")
+                        hide tom standing doubtful2 at scale(0.45), right
+                        "Tom goes bye bye! Everyone say bye bye Tom!"
     $ sydneyshow("syd arms concerned")
     "Sydney" "So where were we?"
     $ sydneyhide("syd arms concerned")
@@ -383,16 +430,17 @@ label sydneyDate:
         "You see Sydney also get hit by this baby’s heart-shaped arrow. Her head’s bleeding."
         scene bg_ground
         "As you touch down onto land, Sydney (still bleeding from the wound) holds up one of the heart-shaped balloons."
-        $ sydneyshow("syd standing concerned")
+        $ sydneyshow("syd special 1")
         "Sydney" "Here, a gift."
-        $ sydneyhide("syd standing concerned")
+        $ sydneyhide("syd special 1")
         "Suddenly, she’s having a hard time keeping eye contact with you."
-        $ sydneyshow("syd standing concerned")
+        $ sydneyshow("syd special 1")
         "Sydney" "Um…"
-        $ sydneyhide("syd standing concerned")
-        $ sydneyshow("syd standing happy4")
+        $ sydneyhide("syd special 1")
+        $ sydneyshow("syd special 2")
         "Sydney" "I had a really fun time today. And…"
-        $ sydneyhide("syd standing happy4")
+        $ sydneyhide("syd special 2")
+        "She plucks the arrow out of her head and wipes off the blood."
         $ sydneyshow("syd heart happy2")
         "Sydney" "And I think I’ve fallen for you."
         "Sydney" "(haha get it. fall? im not proud of this either.)"
@@ -464,7 +512,7 @@ label sydneyDate:
         "Sydney" "Ok this was fun it was nice to meet you let's do this again sometime ok bye!"
         $ sydneyhide("syd standing2 happy4")
         "Sydney struts away."
-        show syd standing2 happy4 at scale(0.2), center
+        show syd standing2 happy4 at friend()
         "Congratulations! You've made your very first friend :)"
         "You achieved SYDNEY NEUTRAL ENDING."
         return

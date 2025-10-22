@@ -24,6 +24,11 @@ transform half_size:
 transform scale(ratio):
     zoom ratio
 
+transform weirdsydneyscale(ratio):
+    zoom ratio
+    anchor (0.0, 1.0)
+    align (0.0, 1.0)
+
 label start:
     scene black
 
@@ -48,15 +53,13 @@ label start:
             "David" "It's all good. Welcome in!"
             hide dav cool happy at half_size
         "H-hey, is this the Game Dev club?":
-            show syd standing happy2 at scale(0.45), right
+            show syd standing happy2 at weirdsydneyscale(0.45), right
             "Sydney" "Yeah! Come in, we've just started."
-            hide syd standing happy2 at scale(0.45), right
+            hide syd standing happy2 at weirdsydneyscale(0.45), right
         "Oh, so this is be the Game Dev Club.":
             "Tom" "Yes, that's us!"
     
-    show dav standing happy2 at half_size
     "Tom" "Welcome in, welcome in!"
-    hide dav standing happy2 at half_size
 
     "Sebastian" "We make games here!"
 
@@ -83,16 +86,16 @@ label start:
     "Tom" "A lot of people here have made games before but a lot of people here are new to it."
     "Tom" "Like you might be, yeah?"
 
-    show syd standing happy2 at scale(0.45)
+    show syd standing happy2 at weirdsydneyscale(0.45)
     "Sydney" "We try to keep the club super beginner friendly! :D"
     "Sydney" "We’ll have meetings on, say, art or music or..."
-    hide syd standing happy2 at scale(0.45)
-    show syd standing neutral at scale(0.45)
+    hide syd standing happy2 at weirdsydneyscale(0.45)
+    show syd standing neutral at weirdsydneyscale(0.45)
     "Ande" "{b}OR PROGRAMMING!{/b}"
-    hide syd standing neutral at scale(0.45)
-    show syd standing happy2 at scale(0.45)
+    hide syd standing neutral at weirdsydneyscale(0.45)
+    show syd standing happy2 at weirdsydneyscale(0.45)
     "Sydney" "...and right now we're{fast} doing a bit of an icebreaker activity!"
-    show syd standing happy2 at scale(0.45)
+    hide syd standing happy2 at weirdsydneyscale(0.45)
     "Sebastian" "Here's a bingo sheet, try to fill it out as best as you can. ;)"
 
     "Sebastian handed you the {color=#ff0}Bingo Sheet{/color}."
@@ -409,7 +412,9 @@ label start:
         "David" "We have a winner!"
         "Ande" "Hey, uh, congrats!"
         "Tom" "Very impressive."
+        show syd standing concerned at weirdsydneyscale(0.45)
         "Sydney" "How is the bingo... 6 long?"
+        hide syd standing concerned at weirdsydneyscale(0.45)
         "Sebastian" "Looks like now that we have a winner to our icebreaker, we can move on with our meeting!"
         "As the other {color=#f0f}officers{/color} move to the projector, Anthony hands you something as a trophy."
         "You got the {color=#ff0}Ice Broken Reward{/color}."
@@ -446,9 +451,13 @@ label start:
             jump intermission
 
         label acceptedSydney:
+            show syd standing happy2 at scale(0.45)
             "Sydney" "{i}Mreeow meow mrraaahhh!{/i}"
+            hide syd standing happy2 at scale(0.45)
+            show syd standing happy at scale(0.45)
             "Sydney" "A date? Yeah sure! I'd love that!"
             "Sydney" "Oh yeah. I've got a great surprise idea."
+            hide syd standing happy at scale(0.45)
             "Sydney puts her hands over your eyes."
             $ officerDate = 3
             jump intermission
