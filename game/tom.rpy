@@ -13,6 +13,7 @@ image bg_classroom:
 image bg_reactor:
     "bg_reactor.png"
     xysize(1920, 1080)
+image black = "#000"
 
 label tomIntro:
     show tom greeting at scale(0.45)
@@ -681,6 +682,7 @@ label tomDate:
                     "You both scoot closer to each other, feeling cozy and warm and satisfied."
                     "Tom" "Hey, I really enjoyed today, I'd love to do this again if you'd like."
                     "He gives you a small hug."
+                    scene black
                     "You got {color=#0ff}TOM GOOD ENDING{/color}."
                 "I should probably go":
                     t "Well, this has been great!"
@@ -693,6 +695,7 @@ label tomDate:
                             t "Okay, that's chill."
                     t "See you later!"
                     "You leave."
+                    scene black
                     "You got TOM NEUTRAL ENDING."
         elif tomDateValue < 0:
             "He seems to be getting pretty bored."
@@ -708,6 +711,7 @@ label tomDate:
             t "Bye."
             "He closes the door and you hear him breathe a sigh of relief from behind it."
             "You leave."
+            scene black
             "You got {color=#f00}TOM BAD ENDING{/color}."
             return
         else:
@@ -721,6 +725,7 @@ label tomDate:
                     t "Okay, that's chill."
             t "See you later!"
             "You leave."
+            scene black
             "You got TOM NEUTRAL ENDING."
                     
 
