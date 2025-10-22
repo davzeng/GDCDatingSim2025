@@ -376,8 +376,8 @@ label start:
         "David" "Here, let me fill out your bingo."
         "David fills out \"Has spent at least $1000 on a video game\"."
         "You got the {color=#ff0}Bingo Sheet{/color}."
-        "David" "By the way, I’m practicing my cosplay for a convention tomorrow."
-        "David" "If you happen to be a weeb too...{w} I wouldn’t mind it if you came as well..."
+        "David" "By the way, do you like boba?"
+        "David" "If you do..?{w} I wouldn’t mind grabbing a drink with you tommorrow..."
         jump chooseOfficerIntro
 
     label sebastianIntro:
@@ -451,7 +451,7 @@ label start:
                 jump acceptedSydney
             "Tell Ande you'd like to play Roblox together":
                 jump acceptedAnde
-            "Tell David you want to practice cosplay together":
+            "Tell David you want to grab a drink together":
                 jump acceptedDavid
             "Tell Sebastian you'd like to hang out":
                 jump acceptedSebastian
@@ -480,7 +480,8 @@ label start:
             jump intermission
 
         label acceptedDavid:
-            "David" "TEXT"
+            "David" "Wonderful!"
+            "David" "I'll see you friday after class!"
             $ officerDate = 5
             jump intermission
 
@@ -748,6 +749,70 @@ label start:
         #label andeDate:
 
         label davidDate:
+            default affection = 0
+            "You walk down the ave after your last class to the address David sent you."
+            p "He said it should be near here..."
+            "David only sent an address. No time... Or any sort of elaboration."
+            "David" "Hi there. Where you waiting long?"
+            menu:
+                "No, not at all":
+                    "David" "Great lets go in."
+                "Yeah, you've kept me waiting for hours":
+                    "David" "I-is that so?"
+                    "David" "{i}oh my... they're glaring at me so harshly.{/i}"
+                    "David" "{i}my face's turning red.{/i}"
+                    $ affection += 1
+            "The two of you walk into the boba place he's picked out."
+            "This run down place would definitely not be your first choice."
+            "David" "How do you like it?"
+            menu:
+                "It's alright.":
+                    "David" "Well, at least you don't hate it."
+                "What the h*** is this?":
+                    "David" "You don't like it?"
+                    "David" "I'm sorry, I should have picked a normaler place."
+                    "David" "{i}jeez.{/i}"
+                    "David" "{i}they're so blunt.{/i}"
+                    $ affection += 1
+            "David" "Anyways how has your day bee-"
+            "A notificaiton pops up on his phone as he is talking."
+            "David" "Oh crap! I nearly forgot to do my dailies."
+            "He pulls out a phone and starts tapping away."
+            menu:
+                "Uhm... What are you doing?":
+                    "He blushes."
+                "Stare at him":
+                    "..."
+                    "......"
+                    "........."
+                    "..."
+                    "......"
+                    "........."
+            "David" "Sorry about that."
+            "David" "I shouldn't be gaming while someone is talking to me."
+            menu:
+                "Yeah, no sh*t":
+                    "David" "R-right."
+                    "David" "{i}oh...{/i}"
+                    "David" "{i}my does my face heat up they raise their voice?{/i}"
+                    $ affection += 1
+                "It's fine":
+                    "David" "R-really?"
+                    $ affection -= 1
+            "David" "Anyhow?"
+            "David" "You play any gacha games?"
+            menu:
+                "Of course":
+                    "David" "amazing!"
+                    "The two of you spend the next hour talking about gacha games."
+                    $ affection += 2
+                "What... no":
+                    "The rest of time passes in awkward, though not entirely unbearable, silence."
+                    $ affection -= 1
+            
+
+
+            
 
         label sebastianDate:
 
