@@ -16,6 +16,9 @@ image bg_hall:
 image bg_classroom:
     "bg_classroom.png"
     xysize(1920, 1080)
+image bg_sky:
+    "bg_sky.png"
+    xysize(1920, 1080)
 
 # The game starts here.
 transform half_size:
@@ -30,6 +33,7 @@ transform weirdsydneyscale(ratio):
     align (0.0, 1.0)
 
 label start:
+    jump tomDate
     scene black
 
     p "I'm late! I'm late!"
@@ -174,113 +178,6 @@ label start:
         "Anthony" "But that was a lot of fun! We should talk more if you have any other problems you want solved!"
         "Anthony" "Or not solved."
         "Anthony" "Regardless!"
-        jump chooseOfficerIntro
-
-    label tomIntro:
-        "Tom" "Hellooo!"
-        $ visited = []
-        $ askedGoals = False
-        $ askedShortTerm = False;
-        menu tomIntro1:
-            set visited
-            "Who are you.":
-                "Tom" "Pretty sure I’m Tom. Or something similar to that. I’m an {color=#f0f}officer{/color} of the game development club for what it’s worth."
-                "Tom" "In my spare time I guess I play the piano and grow plants. I have something like 2 billion of those. Plants, not pianos."
-                "Tom" "One day,  I’m 20 percent certain, I’ll find some way to fuse myself, my plants, and an analog/digital interface and enter my penultimate form."
-                "Tom" "It can't be good, but I've gotta do it."
-                "Tom" "I spend the other 80 percent of my certainty on being certain on other things."
-            "What are you.":
-                "Tom" "Most people think I’m human, whatever that is."
-                "Tom" "They're generally right."
-                jump tomIntro1
-            "Why are you.":
-                "Tom" "Well, if we’re being purely by cause-and-effect I am because 2 decades or so ago I was born in a hospital in Portland. Y’know. Standard and all, so I’m told. You just had to be there."
-                "Tom" "Now, you could say that’s why I {i}was{/i}, but why I am {i}now{/i} is a different matter. Time has passed."
-                "Tom" "And to that I’d answer I am because I have taken actions that have resulted in my remaining alive until this point."
-                "Tom" "And the {i}why{/i} as to why I’ve taken those actions is because I intend to live."
-                "Tom" "And the {i}why{/i} as to that is because I wish to, y’know, complete my goals in life or whatever."
-                "Tom" "You could also just say I am because I think, or something."
-                $ askedGoals = True
-                jump tomIntro1
-            "What are your goals." if askedGoals:
-                "Tom" "Personal question so soon! Wow! What a specimen! Look at you!"
-                "Tom" "Y’know, I guess the main thing is I just aspire to be a beneficial part of the world. Be the best person I can, be good to others."
-                "Tom" "Beyond that? I’d say I want to find somebody to spend my life with. Have a house, garden, maybe a family. Do something with my career that improves the world."
-                "Tom" "Short term goals though? Don’t really know, if I’m being honest..."
-                "Tom" "What are yours?"
-                menu:
-                    "I want to be an astronaut and shoot myself into space and leave Earth forever.":
-                        "Tom" "That's pretty bold! But I can definitely respect that."
-                        "Tom" "I believe in you. Shoot for the moon, miss, and land somewhere among stars you don’t know."
-                        "Tom" "Tell the aliens I say hi ;)"
-                    "I want to get into a passionate and deep relationship with you.":
-                        "Tom" "Oh! Wow! Uh."
-                        "Tom" "Forward, aren't you?"
-                        "Tom" "Well, you’ll just have to get to know me first. You can do that, can’t you?"
-                    "I want to eventually retreat into the Himalayas and discover the answer to end human suffering.":
-                        "Tom" "Dude. Fire."
-                        "Tom" "I respect that, let me know what I can do to help you with that."
-                        "Tom" "Oh, and let me know if you find it out. The answer to it all, that is."
-                    "Do you really not have any short term goals?" if secretStep1:
-                        $ askedShortTerm = True
-                        "Tom" "Well... I, uh..."
-                        "David" "Hey guys! How's the bingo sheets going?"
-                        "David" "I've almost got mine filled all the way out!"
-                        "David" "God, I can't wait to finish this meeting and get back to ZhuoZhi..."
-                        "David" "Alas."
-                        "David" "Good luck, you guys!"
-                        "Tom" "Anyways, uh..."
-                jump tomIntro1
-            
-        "Tom" "But yeah, I’ve been a {color=#f0f}game development officer{/color} for years now. I’m the head of our Reclamation, Advancement, and Technology division."
-        "Tom" "The RAT division."
-        "Tom" "I don’t even know how long I've been here... or how long there is left..."
-        "Tom" "..."
-        "Tom" "You have a bingo sheet, right? Let me take a look."
-        "You give Tom the {color=#ff0}Bingo Sheet{/color}."
-        "Tom" "Hmm ok."
-        "Tom" "Yeah, I can fill out \"Knows the alchemical elements and how to use them\". Here you go!"
-        "You got the {color=#ff0}Bingo Sheet{/color}."
-        "Tom" "Can you fill something out on mine as well?"
-        "You got the {color=#ff0}Tom's Bingo Sheet{/color}."
-        menu:
-            "{i}Fill out \"Owns a pre-1900s gaming console\".{/i}":
-                "Tom" "Ah yes. The fabled Untendo 1.5 Cube. My great-great-grandfather loved to play {i}Kill and Eat: Peter’s Origins{/i} on that old iron box."
-                "Tom" "You play anything on it?"
-                menu:
-                    "{i}Train Wreck 5: The Wreckoning Comes to Crush, TX.{/i}":
-                        "Tom" "Total locomotive classic. Good choice."
-                    "{i}Anachronism IV, Enter the Digital Age{/i}":
-                        "Tom" "Mind-bending, that one's fucked up. Awesome"
-                    "{i}A Treatise on the Cultivation of Various Cereal Crops and their Usages in Feeding Livestock{/i}":
-                        "Tom" "Ah, love a good cozy game."
-                "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
-                "Tom" "Thanks for that!"
-            "{i}Fill out \"Has grown a plant to completion (any ending)\".{/i}":
-                "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
-                "Tom" "Ah sick!"
-                "Tom" "Been trying to do that for years. Well, true ending completion, that is."
-                "Tom" "I got first ending a while ago. Thank you!"
-            "{i}Fill out \"Sleeps in real life AND in game\".{/i}":
-                "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
-                "Tom" "Oh wow! We really do have a lot in common don’t we?"
-                "Tom" "Maybe we could, uh, put our Minecraft beds on adjacent blocks... if you wouldn’t mind..."
-                "Tom" "..."
-                "Tom" "Uh... thanks for the bingo!"
-            "{i}Fill out \"Knows you're up to something\".{/i}" if askedShortTerm:
-                "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
-                "Tom" "Oh."
-                "Tom" "Uh."
-                "Tom" "Cool! Thanks, I was {i}trying{/i} to get that one filled out!"
-                "Tom" "See you... around?"
-                $ secretStep2 = True
-                jump chooseOfficerIntro
-        
-        "Tom" "Hey, if you want to hang out later I think that’d be great."
-        "Tom" "I’ve got a new tea set and just got some new loose leaf tea imported from {color=#0f0}Greenpath{/color}."
-        "Tom" "You’re more than welcome to come by my place this weekend; we could play some video games, have some tea, and I could show off my plant collection!"
-        "Tom" "Just let me know! ;)"
-
         jump chooseOfficerIntro
 
     label andeIntro:
@@ -446,7 +343,10 @@ label start:
             jump intermission
 
         label acceptedTom:
-            "Tom" "TEXT"
+            "Tom" "Hey, that's awesome!"
+            "Tom" "I can pick you up if you'd like, I always love driving."
+            "Tom" "Here, what days are you free..."
+            "You both exchange {color=#ff0}Contact Information{/color}."
             $ officerDate = 2
             jump intermission
 
@@ -483,6 +383,20 @@ label start:
             if (officerDate == 1):
                 jump anthonyDate
             elif (officerDate == 2):
+                scene black
+                "Later..."
+                "You're at the place Tom said he could pick you up."
+                "You hear a whirring steadily growing in volume that occupies all pitches of the auditory spectrum."
+                "You look up and descending upon you is a mess of steel and timber, coursing through the air by some unknown principle."
+                "Tom is proudly driving it."
+                scene bg_sky
+                "He extends a hand to help you board the mysterious contraption and the both of you woosh off!"
+                "The ride on ambiguopter is smooth and bumpy..."
+                "Tom" "Glad you were able to make this work out! It's good to see you! :)"
+                "He's shouting over the noise of the... engines? Rotors? Distillation columns?"
+                "It's hard to tell what they are."
+                "Tom" "I built this thing myself! It even gets good mileage!!"
+                "You eventually begin to descend to a blue house. Tom manages to land on the fire escape. It's unclear whether or not this is an accident."
                 jump tomDate
             elif (officerDate == 3):
                 jump sydneyDate
@@ -494,10 +408,6 @@ label start:
                 jump sebastianDate
         
         label anthonyDate:
-
-        label tomDate:
-
-
 
         #label andeDate:
 
@@ -544,31 +454,34 @@ label start:
             "David" "Sorry about that."
             "David" "I shouldn't be gaming while someone is talking to me."
             menu:
-                "Yeah, no sh*t":
+                "Yeah, no sh*t.":
                     "David" "R-right."
                     "David" "{i}oh...{/i}"
                     "David" "{i}my does my face heat up they raise their voice?{/i}"
                     $ affection += 1
-                "It's fine":
+                "It's fine.":
                     "David" "R-really?"
                     $ affection -= 1
             "David" "Anyhow?"
             "David" "You play any gacha games?"
             menu:
-                "Of course":
+                "Of course.":
                     "David" "amazing!"
                     "The two of you spend the next hour talking about gacha games."
                     $ affection += 2
-                "What... no":
+                "What... no.":
                     "The rest of time passes in awkward, though not entirely unbearable, silence."
                     $ affection -= 1
-            
-
-
-            
-
+            "Eventually, it's time for you to head out... it's almost morning!"
+            if affection <= 1:
+                "David leads you out of the building."
+                "David" "Hey, it was... a time hanging out."
+                "David" "I'll see you around?"
+                "You achieved DAVID NEUTRAL ENDING."
+            else:
+                "TEXTTTTT"
+                "david bein down bad prolly"
+                "You achieved {color=#0ff}DAVID GOOD ENDING{/color}!"
         label sebastianDate:
-
-        label secretDate:
 
     return

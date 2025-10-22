@@ -38,64 +38,64 @@ init python:
 
 
 label sydneyIntro:
-        $ sydneyshow("syd standing happy2")
-        "Sydney" "Oh hi! I'm Sydney! Nice to meet you :) {i}meow{/i}"
-        $ sydneyhide("syd standing happy2")
-        menu:
-            "Meow?":
-                $ sydneyshow("syd arms neutral")
-                "Sydney" "Oh yeah. You know. Meow meow?"
-                $ sydneyhide("syd arms neutral")
-            "{i}Mrrrrrrrrr mmraa! Memeow?{/i}":
-                $ sydneyshow("syd arms happy2")
-                "Sydney" "{i}Meowmeowmeowmeow meowmeow meowmeow meeeooooowwww~{/i}"
-                $ sydneyhide("syd arms happy2")
-            "Uhh.. yeah it's nice to meet you too.":
-                $ sydneyshow("syd standing neutral2")
-                "Sydney" "Uh yeah."
-                $ sydneyhide("syd standing neutral2")
+    $ sydneyshow("syd standing happy2")
+    "Sydney" "Oh hi! I'm Sydney! Nice to meet you :) {i}meow{/i}"
+    $ sydneyhide("syd standing happy2")
+    menu:
+        "Meow?":
+            $ sydneyshow("syd arms neutral")
+            "Sydney" "Oh yeah. You know. Meow meow?"
+            $ sydneyhide("syd arms neutral")
+        "{i}Mrrrrrrrrr mmraa! Memeow?{/i}":
+            $ sydneyshow("syd arms happy2")
+            "Sydney" "{i}Meowmeowmeowmeow meowmeow meowmeow meeeooooowwww~{/i}"
+            $ sydneyhide("syd arms happy2")
+        "Uhh.. yeah it's nice to meet you too.":
+            $ sydneyshow("syd standing neutral2")
+            "Sydney" "Uh yeah."
+            $ sydneyhide("syd standing neutral2")
 
-        $ sydneyshow("syd standing happy4")
-        "Sydney" "So yeah you've got a bingo sheet right? Let's see..."
-        $ sydneyhide("syd standing happy4")
-        $ sydneyshow("syd standing concerned")
-        "Sydney" "\"Thinks fruits and vegetables came from {i}Stardew Valley{/i}\ uhh..."
-        $ sydneyshow("syd standing concerned")
-        $ sydneyhide("syd standing concerned")
-        $ sydneyshow("syd standing2 happy")
-        "Sydney" "OMG yeah once I went to the state fair and was {color=#f00}SHOCKED{/color} to see pumpkins in real life."
-        "Sydney" "I can’t believe they’d so shamelessly rip off Stardew like that!"
-        $ sydneyhide("syd standing2 happy")
-        $ sydneyshow("syd standing2 happy")
-        show syd standing2 doubtful at weirdsydneyscale(0.45)
-        "Sydney" "They made it so you can even grow giant pumpkins too? What the fart..."
-        hide syd standing2 doubtful at weirdsydneyscale(0.45)
-        menu:
-            "Real life came first. Then {i}Stardew Valley{/i}.":
-                show syd shocked at weirdsydneyscale(0.45)
-                "Sydney" "{b}YOU TAKE THAT BACK!!!{/b}"
-                hide syd shocked at weirdsydneyscale(0.45)
-                show syd arms sad at scale(0.45)
-                "Sydney" "..."
-                hide syd arms sad at scale(0.45)
-                show syd thumbsup happy4 at weirdsydneyscale(0.45)
-                "Sydney" "Sorry, what I meant to say was... erm... you’re wrong. Yup! ;D"
-                hide syd thumbsup happy4 at weirdsydneyscale(0.45)
-            "And they had the audacity to take cauliflower too!":
-                show syd thumbsup happy3 at weirdsydneyscale(0.45)
-                "Sydney" "I know right! You get it."
-                hide syd thumbsup happy3 at weirdsydneyscale(0.45)
-            "...":
-                show syd arms neutral at scale(0.45)
-                "Sydney" "Don’t give me that face, you know I’m right."
-                hide syd arms neutral at scale(0.45)
-        
-        $ sydneyshow("syd standing happy4")
-        "Sydney" "Well, good chatting with you! If you ever want to hang out let's do that!"
-        "Sydney" "Sydney OUT!"
-        $ sydneyhide("syd standing happy4")
-        hide syd standing happy4 at weirdsydneyscale(0.45)
-        jump chooseOfficerIntro
+    $ sydneyshow("syd standing happy4")
+    "Sydney" "So yeah you've got a bingo sheet right? Let's see..."
+    $ sydneyhide("syd standing happy4")
+    $ sydneyshow("syd standing concerned")
+    "Sydney" "\"Thinks fruits and vegetables came from {i}Stardew Valley{/i}\ uhh..."
+    $ sydneyshow("syd standing concerned")
+    $ sydneyhide("syd standing concerned")
+    $ sydneyshow("syd standing2 happy")
+    "Sydney" "OMG yeah once I went to the state fair and was {color=#f00}SHOCKED{/color} to see pumpkins in real life."
+    "Sydney" "I can’t believe they’d so shamelessly rip off Stardew like that!"
+    $ sydneyhide("syd standing2 happy")
+    $ sydneyshow("syd standing2 happy")
+    show syd standing2 doubtful at weirdsydneyscale(0.45)
+    "Sydney" "They made it so you can even grow giant pumpkins too? What the fart..."
+    hide syd standing2 doubtful at weirdsydneyscale(0.45)
+    menu:
+        "Real life came first. Then {i}Stardew Valley{/i}.":
+            show syd shocked at weirdsydneyscale(0.45)
+            "Sydney" "{b}YOU TAKE THAT BACK!!!{/b}"
+            hide syd shocked at weirdsydneyscale(0.45)
+            show syd arms sad at scale(0.45)
+            "Sydney" "..."
+            hide syd arms sad at scale(0.45)
+            show syd thumbsup happy4 at weirdsydneyscale(0.45)
+            "Sydney" "Sorry, what I meant to say was... erm... you’re wrong. Yup! ;D"
+            hide syd thumbsup happy4 at weirdsydneyscale(0.45)
+        "And they had the audacity to take cauliflower too!":
+            show syd thumbsup happy3 at weirdsydneyscale(0.45)
+            "Sydney" "I know right! You get it."
+            hide syd thumbsup happy3 at weirdsydneyscale(0.45)
+        "...":
+            show syd arms neutral at scale(0.45)
+            "Sydney" "Don’t give me that face, you know I’m right."
+            hide syd arms neutral at scale(0.45)
+    
+    $ sydneyshow("syd standing happy4")
+    "Sydney" "Well, good chatting with you! If you ever want to hang out let's do that!"
+    "Sydney" "Sydney OUT!"
+    $ sydneyhide("syd standing happy4")
+    hide syd standing happy4 at weirdsydneyscale(0.45)
+    jump chooseOfficerIntro
 
 label sydneyDate:
     $ sydneyDateValue = 0
@@ -283,6 +283,7 @@ label sydneyDate:
                         "You begin to leap from the failing machine, sparing one last glance at Tom before you do."
                         "You jump and begin to reach for your parachute cord."
                         "Yet, no more than three seconds after your foot leaves the deck, a seagull collides with the left side of your head."
+                        scene black
                         "And then there is nothing but darkness."
                         "You plummet to the ground."
                         "You have died."
@@ -362,14 +363,12 @@ label sydneyDate:
                 menu:
                     "Thank you thank you thank you!":
                         "You board Tom’s flying thingy and the two of you zoom off."
+                        "You unequipped the {color=#ff0}Skydiving Gear{/color}.\n{color=#f00}ATK{/color} +0 | {color=#00f}DEF{/color} -3 | {color=#0f0}LUC{/color} -1"
                         "In the distance, you see Sydney stick her tongue out at the both of you before she grows wings and flies away herself."
                         "You fly back down to the ground and land at Tom's house."
                         show tom gesture happy3 at scale(0.45)
                         "Tom" "Safe flight! Nice. I only hit that landing half the time."
                         hide tom gesture happy3 at scale(0.45)
-                        show tom gesture happy at scale(0.45)
-                        "Tom" "Come inside, come inside!"
-                        hide tom gesture happy at scale(0.45)
                         jump tomDate
                     "PSYCHEEEEE!":
                         show tom standing doubtful2 at scale(0.45), right
