@@ -53,52 +53,76 @@ label start:
             "David" "It's all good. Welcome in!"
             hide dav cool happy at half_size
         "H-hey, is this the Game Dev club?":
-            show syd standing happy2 at weirdsydneyscale(0.45), right
+            show syd standing happy2 at weirdsydneyscale(0.45)
             "Sydney" "Yeah! Come in, we've just started."
-            hide syd standing happy2 at weirdsydneyscale(0.45), right
+            hide syd standing happy2 at weirdsydneyscale(0.45)
         "Oh, so this is be the Game Dev Club.":
+            show tom cross happy at scale(0.45)
             "Tom" "Yes, that's us!"
+            hide tom cross happy at scale(0.45)
     
+    show tom standing happy2 at scale(0.45)
     "Tom" "Welcome in, welcome in!"
-
+    hide tom standing happy2 at scale(0.45)
+    # show sebastian, right
     "Sebastian" "We make games here!"
-
+    # show ande
     "Ande" "Oh hey, you new to the club?"
-
+    # hide ande
+    # hide sebastian, right
     menu:
         "No, I'm a game development veteran.":
-
+            show dav hand concerned at half_size
             "David"  "I, uh, I don't think I've seen you here before."
+            hide dav hand concerned at half_size
+            show dav hand concerned2 at half_size
             "David" "Is your head ok?"
+            hide dav hand concerned2 at half_size
+            show dav cool happy at half_size
             "David" "Come in anyways, I suppose."
+            hide dav cool happy at half_size
 
         "Y-yeah, this is my first time here.":
-            
+            # show anthony
             "Anthony" "Ah great! New members are always fabulous."
+            # hide anthony
 
         "Actually, I...":
-
+            show tom flattered at scale(0.45)
             "Tom" "Well great! I just finished coding another {i}beautiful{/i} game in {color=#ff0}JavaScript{/color}."
+            hide tom flattered at scale(0.45)
+            show tom cross happy at scale(0.45)
             "Tom" "I promise I'm ok, mentally."
+            hide tom cross happy at scale(0.45)
+            show tom cross neutral at scale(0.45)
             "Tom" "Anyways."
+            hide tom cross neutral at scale(0.45)
 
+    show tom cross happy3 at scale(0.45)
     "Tom" "We meet on {color=#ff0}Wednesdays at 5:00{/color} each week!"
     "Tom" "A lot of people here have made games before but a lot of people here are new to it."
+    hide tom cross happy3 at scale(0.45)
+    show tom cross happy2 at scale(0.45)
     "Tom" "Like you might be, yeah?"
+    hide tom cross happy2 at scale(0.45)
 
     show syd standing happy2 at weirdsydneyscale(0.45)
     "Sydney" "We try to keep the club super beginner friendly! :D"
     "Sydney" "We’ll have meetings on, say, art or music or..."
     hide syd standing happy2 at weirdsydneyscale(0.45)
     show syd standing neutral at weirdsydneyscale(0.45)
+    # show ande
     "Ande" "{b}OR PROGRAMMING!{/b}"
     hide syd standing neutral at weirdsydneyscale(0.45)
     show syd standing happy2 at weirdsydneyscale(0.45)
     "Sydney" "...and right now we're{fast} doing a bit of an icebreaker activity!"
+    # hide ande
     hide syd standing happy2 at weirdsydneyscale(0.45)
+    # show sebastian
     "Sebastian" "Here's a bingo sheet, try to fill it out as best as you can. ;)"
 
     "Sebastian handed you the {color=#ff0}Bingo Sheet{/color}."
+    # hide sebastian
 
     menu:
         "Inspect sheet":
