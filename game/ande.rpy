@@ -17,6 +17,7 @@ label andeDate:
             "He picks it up and you sit down next to him"
     "You notice that something peculiar is on his laptop: it isnt quite the class work."
     "Is he playing... poker?"
+    show ande standing happy
     "He has a seven and a two, unsuited... the flop is two aces and a 3. Three people are in, its his turn to start the bet"
     "He glances over at you for advice.."
     menu:
