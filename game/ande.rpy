@@ -3,6 +3,7 @@ image bg_class:
     xysize(1920, 1080)
 
 label andeDate:
+    scene bg_class
     $ ande_date_value = 0
     "You show up to class.."
     "Looking through the thick crowd of people, you spot him: Ande."
