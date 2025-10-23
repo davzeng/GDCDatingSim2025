@@ -13,6 +13,7 @@ image bg_classroom:
 image bg_reactor:
     "bg_reactor.png"
     xysize(1920, 1080)
+image black = "#000"
 
 label tomIntro:
     show tom greeting at scale(0.45)
@@ -74,7 +75,7 @@ label tomIntro:
                 "I want to get into a passionate and deep relationship with you.":
                     show tom standing surprised at scale(0.45)
                     t "Oh! Wow! Uh."
-                    show tom bashful at scale(0.8)
+                    show tom bashful at left, scale(1.6)
                     t "Forward, aren't you?"
                     show tom standing happy4 at scale(0.45)
                     t "Well, you’ll just have to get to know me first. You can do that, can’t you?"
@@ -152,7 +153,7 @@ label tomIntro:
             "You give Tom the {color=#ff0}Tom's Bingo Sheet{/color}."
             show tom cross happy2 at scale(0.45)
             t "Oh wow! We really do have a lot in common don’t we?"
-            show tom bashful at scale (1.6)
+            show tom bashful at left, scale (1.6)
             t "Maybe we could, uh, put our Minecraft beds on adjacent blocks... if you wouldn’t mind..."
             t "..."
             show tom gesture happy3 at scale(0.45)
@@ -681,6 +682,7 @@ label tomDate:
                     "You both scoot closer to each other, feeling cozy and warm and satisfied."
                     "Tom" "Hey, I really enjoyed today, I'd love to do this again if you'd like."
                     "He gives you a small hug."
+                    scene black
                     "You got {color=#0ff}TOM GOOD ENDING{/color}."
                 "I should probably go":
                     t "Well, this has been great!"
@@ -693,6 +695,7 @@ label tomDate:
                             t "Okay, that's chill."
                     t "See you later!"
                     "You leave."
+                    scene black
                     "You got TOM NEUTRAL ENDING."
         elif tomDateValue < 0:
             "He seems to be getting pretty bored."
@@ -708,6 +711,7 @@ label tomDate:
             t "Bye."
             "He closes the door and you hear him breathe a sigh of relief from behind it."
             "You leave."
+            scene black
             "You got {color=#f00}TOM BAD ENDING{/color}."
             return
         else:
@@ -721,6 +725,7 @@ label tomDate:
                     t "Okay, that's chill."
             t "See you later!"
             "You leave."
+            scene black
             "You got TOM NEUTRAL ENDING."
                     
 

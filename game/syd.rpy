@@ -100,8 +100,8 @@ label sydneyIntro:
 label sydneyDate:
     $ sydneyDateValue = 0
     scene black
-    "Everything’s dark since… y’know… Sydney has her hands over your eyes."
-    "She said she had a surprise date idea and you can’t help but feel… on edge."
+    "Everything’s dark since... y’know... Sydney has her hands over your eyes."
+    "She said she had a surprise date idea and you can’t help but feel... on edge."
     s "Suuuurrppppppppiiiiissseeee!!!"
     "Her hands uncover your eyes to reveal... the inside of a plane?"
     scene bg_plane
@@ -342,10 +342,10 @@ label sydneyDate:
                 $ sydneyshow("syd arms doubtful")
                 show tom standing wince at scale(0.45), right
                 "Tom and Sydney" "?????"
-                s "Ehh… ¿que? I don’t understand..."
+                s "Ehh... ¿que? I don’t understand..."
                 hide tom standing wince at scale(0.45), right
                 show tom gesture concerned at scale(0.45), right
-                "Tom" "Yo tampoco… I didn’t get that so I guess I’ll just leave?"
+                "Tom" "Yo tampoco... I didn’t get that so I guess I’ll just leave?"
                 $ sydneyhide("syd arms doubtful")
                 $ sydneyshow("syd thumbsup neutral")
                 s "Ok, bye!"
@@ -385,7 +385,7 @@ label sydneyDate:
     s "Oh yeah! We’re still dropping from the sky."
     $ sydneyhide("syd standing happy")
     $ sydneyshow("syd standing happy2")
-    s "How about let’s play 2 truths, 1 lie! Let me think… two truths, one lie…"
+    s "How about let’s play 2 truths, 1 lie! Let me think... two truths, one lie..."
     $ sydneyhide("syd standing happy2")
     $ sydneyshow("syd standing happy3")
     s "Ok, my two truths, one lie.\n(INCOMING! SLUSHY NOOBZ REFERENCE! ok)"
@@ -398,7 +398,7 @@ label sydneyDate:
             s "I actually have 5 toes! 5 toes on each feets!"
             $ sydneyhide("syd arms happy3")
             $ sydneyshow("syd arms sad")
-            s "You…you think I’ve fingered my ass before…?"
+            s "You...you think I’ve fingered my ass before...?"
             $ sydneyshow("syd arms sad")
         "The ass one.":
             $ sydneyDateValue += 1
@@ -414,7 +414,7 @@ label sydneyDate:
             s "I actually have been to Iceland before!"
             $ sydneyhide("syd arms happy3")
             $ sydneyshow("syd overit")
-            s "You…you think I’ve fingered my ass before."
+            s "You...you think I’ve fingered my ass before."
             $ sydneyhide("syd overit")
 
     $ sydneyshow("syd standing happy")
@@ -425,7 +425,7 @@ label sydneyDate:
         "Your parachutes open and out come a swarm of heart-shaped balloons."
         "The clouds part to make way for the sun’s gentle light, bathing you two in its warmth."
         "You look into each other’s eyes, mesmerized by the {color=#d1a054}honey gold{/color} in hers and the also whatever pretty color is in yours."
-        "A baby with wings flies close to you and you feel a prick on your…butt?\n{color=#0f9}HP{/color} -1"
+        "A baby with wings flies close to you and you feel a prick on your...butt?\n{color=#0f9}HP{/color} -1"
         "You see Sydney also get hit by this baby’s heart-shaped arrow. Her head’s bleeding."
         scene bg_ground
         "As you touch down onto land, Sydney (still bleeding from the wound) holds up one of the heart-shaped balloons."
@@ -434,10 +434,10 @@ label sydneyDate:
         $ sydneyhide("syd special 1")
         "Suddenly, she’s having a hard time keeping eye contact with you."
         $ sydneyshow("syd special 1")
-        s "Um…"
+        s "Um..."
         $ sydneyhide("syd special 1")
         $ sydneyshow("syd special 2")
-        s "I had a really fun time today. And…"
+        s "I had a really fun time today. And..."
         $ sydneyhide("syd special 2")
         "She plucks the arrow out of her head and wipes off the blood."
         $ sydneyshow("syd heart happy2")
@@ -463,10 +463,11 @@ label sydneyDate:
                 $ sydneyshow("syd heart happy")
                 s "Byee I’ll send you a carrier pigeon!"
                 $ sydneyhide("syd heart happy")
+        scene black
         "You achieved {color=#0ff}SYDNEY GOOD ENDING{/color}!"
         return
     elif sydneyDateValue < -1:
-        "We pulled the parachute…right? Why isn’t anything happening…?"
+        "We pulled the parachute...right? Why isn’t anything happening...?"
         $ sydneyshow("syd shocked")
         s "LET ME TRY PULLING IT AGAINNN!!!"
         $ sydneyhide("syd shocked")
@@ -475,13 +476,13 @@ label sydneyDate:
         $ sydneyhide("syd standing2 happy2")
         "You two plummet to the ground."
         "Sydney zooms past you and lands first. Oof."
-        "The ground grows closer and closer, until…"
+        "The ground grows closer and closer, until..."
         "{i}crunch{/i}"
         scene black
         "..."
         scene white
         "..."
-        "You wake suddenly. Where are you…? You can’t seem to remember anything."
+        "You wake suddenly. Where are you...? You can’t seem to remember anything."
         "It’s bright but unsettling. What’s going on?"
         "In the corner of your eye, you see a familiar face."
         "You turn to them, but can’t seem to figure out where you know them from."
@@ -513,5 +514,6 @@ label sydneyDate:
         "Sydney struts away."
         show syd standing2 happy4 at friend()
         "Congratulations! You've made your very first friend :)"
+        scene black
         "You achieved SYDNEY NEUTRAL ENDING."
         return
