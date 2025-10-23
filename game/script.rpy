@@ -76,9 +76,9 @@ label start:
     hide tom standing happy2 at scale(0.45)
     # show sebastian, right
     se "We make games here!"
-    show ande pose happy at scale(0.45)
+    show ande_pose_happy at scale(0.45)
     a "Oh hey, you new to the club?"
-    hide ande pose happy
+    hide ande_pose_happy
     # hide sebastian, right
     menu:
         "No, I'm a game development veteran.":
