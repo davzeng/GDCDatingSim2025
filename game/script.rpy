@@ -76,9 +76,9 @@ label start:
     hide tom standing happy2 at scale(0.45)
     # show sebastian, right
     se "We make games here!"
-    # show ande
+    show ande pose happy at scale(0.45)
     a "Oh hey, you new to the club?"
-    # hide ande
+    hide ande pose happy
     # hide sebastian, right
     menu:
         "No, I'm a game development veteran.":
@@ -93,9 +93,9 @@ label start:
             hide dav cool happy at half_size
 
         "Y-yeah, this is my first time here.":
-            # show anthony
-            an "Ah great! New members are always fabulous."
-            # hide anthony
+            show ande stand happy2 at scale(0.45)
+            a "Ah great! New members are always fabulous."
+            hide ande stand happy2
 
         "Actually, I...":
             show tom flattered at scale(0.45)
@@ -121,12 +121,12 @@ label start:
     s "We’ll have meetings on, say, art or music or..."
     hide syd standing happy2 at weirdsydneyscale(0.45)
     show syd standing neutral at weirdsydneyscale(0.45)
-    # show ande
+    show ande fucking insane at scale(0.45), right
     a "{b}OR PROGRAMMING!{/b}"
     hide syd standing neutral at weirdsydneyscale(0.45)
     show syd standing happy2 at weirdsydneyscale(0.45)
     s "...and right now we're{fast} doing a bit of an icebreaker activity!"
-    # hide ande
+    hide ande fucking insane
     hide syd standing happy2 at weirdsydneyscale(0.45)
     # show sebastian
     se "Here's a bingo sheet, try to fill it out as best as you can. ;)"
